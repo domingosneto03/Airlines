@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "Airline.h"
 #include "Airport.h"
+#include "graph.h"
 #include <vector>
 #include <string>
 #include <fstream>
@@ -73,4 +74,10 @@ set<Airline*> Application::readAirlines() {
         airlineSet.insert(new Airline(code, name, callsign, country));
     }
     return airlineSet;
+}
+
+
+set <Airport*> Application::teste() {
+    set <Airport*> airports = readAirports();
+    graph graph1(3019, true);
 }

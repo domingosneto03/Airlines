@@ -9,13 +9,11 @@ class Application {
 public:
     set<Airport *> readAirports();
     set<Airline *> readAirlines();
+    set<struct Airport *> teste();
 
 private:
     set<Airport *> airportSet = {};
     set<Airline *> airlineSet = {};
 };
-
-
-
 
 #endif //UNTITLED_FILES_H
