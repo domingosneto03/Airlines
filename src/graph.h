@@ -5,7 +5,6 @@
 #include <list>
 #include <iostream>
 #include <queue>
-#include "MinHeap.h"
 
 using namespace std;
 
@@ -22,14 +21,12 @@ public:
         double dist;
         int pred;
         bool visited;
-        string airport;
         string code;
         string name;
         string city;
         string country;
         double latitude;
         double longitude;
-        string airline;
     };
 
     int n;
@@ -58,7 +55,7 @@ public:
     * @param b - airport index of destination
     * @return - list of tuples with the airports information
     */
-    list<tuple<string,string,string>> getPath(int a, int b);
+    list<tuple<string,string>> getPath(int a, int b);
 
     /**
     * Breadth-first search through the graph \n
@@ -76,4 +73,4 @@ public:
 
 };
 
-#endif
+#endif //PROJECTAED_G24_GRAPH_H

@@ -28,6 +28,48 @@ public:
     */
     static double haversine(double lat1, double lon1, double lat2, double lon2);
 
+    /**
+    * Returns the Airport's code.
+    * Complexity : O(1)
+    * @return code
+    */
+    string getCode();
+
+    /**
+    * Returns the Airport's name.
+    * Complexity : O(1)
+    * @return name
+    */
+    string getName();
+
+    /**
+    * Returns the Airport's city.
+    * Complexity : O(1)
+    * @return city
+    */
+    string getCity();
+
+    /**
+    * Returns the Airport's country.
+    * Complexity : O(1)
+    * @return country
+    */
+    string getCountry();
+
+    /**
+    * Returns the Airport's latitude.
+    * Complexity : O(1)
+    * @return latitude
+    */
+    double getLatitude();
+
+    /**
+    * Returns the Airport's longitude.
+    * Complexity : O(1)
+    * @return longitude
+    */
+    double getLongitude();
+
 private:
     string code;
     string name;

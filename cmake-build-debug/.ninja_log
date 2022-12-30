@@ -1,6 +1,8 @@
 # ninja log v5
-8	575	6930102380829013	CMakeFiles/ProjectAED_G24.dir/src/Airport.cpp.obj	9a2bcd5459cc7724
+4	370	6941175324654062	CMakeFiles/ProjectAED_G24.dir/src/Airport.cpp.obj	9a2bcd5459cc7724
 12	579	6930102380829013	CMakeFiles/ProjectAED_G24.dir/src/Airline.cpp.obj	90a933a76d725b06
-1	641	6930102381484854	CMakeFiles/ProjectAED_G24.dir/main.cpp.obj	1d3c9e406b3f2f51
-18	1035	6930102385319025	CMakeFiles/ProjectAED_G24.dir/src/Application.cpp.obj	eaa40d4a5fe1e4da
-1036	1363	6930102388662648	ProjectAED_G24.exe	fee11ae4a8491b19
+18	1228	6941175185591436	CMakeFiles/ProjectAED_G24.dir/src/graph.cpp.obj	c956a58f431a71cf
+3	304	6941175176358736	CMakeFiles/ProjectAED_G24.dir/main.cpp.obj	1d3c9e406b3f2f51
+11	3083	6941181455524224	CMakeFiles/ProjectAED_G24.dir/src/Application.cpp.obj	eaa40d4a5fe1e4da
+3083	3739	6941181462061151	ProjectAED_G24.exe	c25b061e3227abad
+5	1608	6941181440858880	CMakeFiles/ProjectAED_G24.dir/src/Menu.cpp.obj	5aff6dcfa6b2e993

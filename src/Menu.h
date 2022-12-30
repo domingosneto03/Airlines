@@ -3,7 +3,15 @@
 
 
 class Menu {
+public:
+    Menu();
 
+private:
+    /**
+    * Prints the initial options on the terminal.
+    * Complexity :
+    */
+    void mainMenu();
 };
 
 

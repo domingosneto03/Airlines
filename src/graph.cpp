@@ -1,11 +1,11 @@
 #include "graph.h"
 #include <map>
 
-
 graph::graph(int num, bool dir) : n(num), hasDir(dir), nodes(num + 1) {
+
 }
 
-void graph::addEdge(int src, int dest,string airline, double weight) {
+void graph::addEdge(int src, int dest, string airline, double weight) {
     if (src<1 || src>n || dest<1 || dest>n) return;
     nodes[src].adj.push_back({dest, weight, airline});
     if (!hasDir) nodes[dest].adj.push_back({src, weight, airline});
@@ -30,20 +30,19 @@ void graph::bfs (int v) {
                 nodes[w].visited = true;
                 nodes[w].dist = nodes[u].dist + 1.0;
                 nodes[w].pred = u;
-                nodes[w].airline = e.airline;
             }
         }
     }
 }
 
-list<tuple<string,string,string>> graph::getPath(int a, int b) {
-    list<tuple<string,string,string>> path;
+list<tuple<string,string>> graph::getPath(int a, int b) {
+    list<tuple<string,string>> path;
     if (nodes[b].dist == INT_MAX / 2) return path;
-    path.emplace_back(nodes[b].airport,nodes[b].code, nodes[b].airport);
+    path.emplace_back(nodes[b].code, nodes[b].name);
     int v = b;
     while (v != a) {
         v = nodes[v].pred;
-        path.push_front(make_tuple(nodes[v].airport,nodes[v].code, nodes[v].airport));
+        path.push_front(make_tuple(nodes[v].code, nodes[v].name));
     }
     return path;
 }
