@@ -5,8 +5,8 @@
 #include "Airline.h"
 #include "graph.h"
 #include <vector>
-#include <map>
-
+#include <unordered_map>
+#include <unordered_set>
 
 struct Flights {
     string source;
@@ -30,8 +30,8 @@ struct Flights {
 class Application {
 
 public:
-    vector<Airport *> readAirports();
-    vector<Airline *> readAirlines();
+    unordered_set<Airport *> readAirports();
+    unordered_set<Airline *> readAirlines();
     vector<Flights> readFlights();
 
     /**
@@ -41,7 +41,7 @@ public:
      * @param AirportIndex - a map containing a index for each airport
      * @param airports - vector with all the airports
      */
-    void setGraphNodes(graph &graph, std::map<string, int> &airportsIndex, vector<Airport*> &airports);
+    void setGraphNodes(graph &graph, unordered_map<string, int> &airportsIndex, unordered_set<Airport*> &airports);
 
     /**
     * Cleaning/removal of the edges between nodes in the graph
@@ -53,8 +53,8 @@ public:
 
 
 private:
-    vector<Airport *> airportVector = {};
-    vector<Airline *> airlineVector = {};
+    unordered_set<Airport *> airportSet = {};
+    unordered_set<Airline *> airlineSet = {};
     vector<Flights> flightsVector = {};
     graph *graph1 = NULL;
 };
