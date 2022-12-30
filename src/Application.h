@@ -50,13 +50,16 @@ public:
     void clearEdges(graph &graph);
 
     void createGraph();
-
+    int numberFlights(string airportCode);
 
 private:
     unordered_set<Airport *> airportSet = {};
     unordered_set<Airline *> airlineSet = {};
     vector<Flights> flightsVector = {};
     graph *graph1 = NULL;
+    unordered_map<string, int> airportIndex; //code e index
+
+
 };
 
 #endif //PROJECTAED_G24_APPLICATION_H

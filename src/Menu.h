@@ -6,7 +6,8 @@ class Menu {
 public:
     Menu();
     void mainMenu();
-    void AirportMenu();
+    void airportMenu();
+    void numberFlightsMenu();
 };
 
 

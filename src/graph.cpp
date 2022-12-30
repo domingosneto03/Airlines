@@ -22,7 +22,6 @@ void graph::bfs (int v) {
     nodes[v].visited = true;
     while (!q.empty()) {
         int u = q.front(); q.pop();
-
         for (const auto& e : nodes[u].adj) {
             int w = e.dest;
             if (!nodes[w].visited) {

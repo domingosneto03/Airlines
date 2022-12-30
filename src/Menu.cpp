@@ -6,6 +6,7 @@ using namespace std;
 Application app;
 
 Menu::Menu() {
+    app.createGraph();
     mainMenu();
 }
 
@@ -27,17 +28,17 @@ void Menu::mainMenu() {
 
     switch (option) {
         case 1:
-            AirportMenu();
+            airportMenu();
             break;
         case 2:
-            app.createGraph();
+
             break;
         case 3:
             exit(-1);
     }
 }
 
-void Menu::AirportMenu() {
+void Menu::airportMenu() {
     int option;
     cout << "=============AIRPORT MENU=============" << endl;
     cout << "1 - Number of flights" << endl;
@@ -57,6 +58,7 @@ void Menu::AirportMenu() {
 
     switch (option) {
         case 1:
+            numberFlightsMenu();
             break;
         case 2:
             break;
@@ -67,5 +69,27 @@ void Menu::AirportMenu() {
         case 5:
             mainMenu();
             break;
+    }
+}
+
+void Menu::numberFlightsMenu() {
+    string code;
+    cout << "Introduce the airport's code:" ;
+    cin >> code;
+    int number = app.numberFlights(code);
+    cout << "There are " << number << " flights." << endl;
+
+    string conti;
+    cout << "Do you want to see any more airports? (y/n)" <<
+         endl;
+    cin >>
+        conti;
+    if (conti == "n" || conti == "N") {
+        mainMenu();
+    } else if (conti == "Y" || conti == "y") {
+        numberFlightsMenu();
+    } else {
+        cout << "This option is not valid, Please enter it again:" << endl;
+        cin >> conti;
     }
 }

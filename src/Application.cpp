@@ -131,9 +131,51 @@ void Application::clearEdges(graph &graph) {
 void Application::createGraph() {
     unordered_set<Airport*> airports = readAirports();
     this->graph1 = new graph(3019, true);
-    unordered_map<string, int> airportIndex;
     setGraphNodes(*graph1, airportIndex, airports);
-    for (auto i: graph1->getNodes()) {
-        cout << i.name << endl;
+    flightsVector = readFlights();
+
+    for (int i=0; i < flightsVector.size(); i++) {
+        int src1 = 0;
+        int trg1 = 0;
+        double lon1 = 0.0;
+        double lat1 = 0.0;
+        double lon2 = 0.0;
+        double lat2 = 0.0;
+        double distance = 0.0;
+        string airline = flightsVector[i].airline;
+
+        for (auto m : airportIndex) {
+            if (m.first == flightsVector[i].source) {
+                src1=m.second;
+            }
+            if(m.first == flightsVector[i].target) {
+                trg1 = m.second;
+            }
+        }
+
+        for (auto a : airports) {
+            if (a->getCode() == flightsVector[i].source) {
+                lon1 = a->getLongitude();
+                lat1 = a->getLatitude();
+            }
+            if (a->getCode() == flightsVector[i].target) {
+                lon2 = a->getLongitude();
+                lat2 = a->getLatitude();
+            }
+            if(lon1!=0.0 && lon2!=0.0) distance = haversine(lat1, lon1, lat2, lon2);
+        }
+
+        graph1->addEdge(src1, trg1, airline, distance);
     }
+}
+
+int Application::numberFlights(string airportCode) {
+    int i=0;
+    for (auto m : airportIndex) {
+        if (m.first == airportCode) {
+            i=m.second;
+        }
+        if (i!=0) break;
+    }
+    return graph1->nodes[i].adj.size();
 }
