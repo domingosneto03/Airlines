@@ -151,6 +151,7 @@ void Application::createGraph() {
             if(m.first == flightsVector[i].target) {
                 trg1 = m.second;
             }
+            if(src1!=0 && trg1!=0) break;
         }
 
         for (auto a : airports) {
@@ -162,20 +163,45 @@ void Application::createGraph() {
                 lon2 = a->getLongitude();
                 lat2 = a->getLatitude();
             }
-            if(lon1!=0.0 && lon2!=0.0) distance = haversine(lat1, lon1, lat2, lon2);
+            if(lon1!=0.0 && lon2!=0.0) ;
         }
-
+        distance = haversine(lon1, lat1, lat2, lon2);
         graph1->addEdge(src1, trg1, airline, distance);
     }
 }
 
 int Application::numberFlights(string airportCode) {
-    int i=0;
-    for (auto m : airportIndex) {
-        if (m.first == airportCode) {
-            i=m.second;
-        }
-        if (i!=0) break;
+    auto itr = airportIndex.find(airportCode);
+    if(itr == airportIndex.end()){
+        return -1;
     }
-    return graph1->nodes[i].adj.size();
+    return graph1->nodes[itr->second].adj.size();
+}
+
+int Application::numberAirlines(string airportCode) {
+    unordered_set <string> airlines = {};
+
+    auto itr = airportIndex.find(airportCode);
+    if(itr == airportIndex.end()){
+        return -1;
+    }
+
+    for(auto i : graph1->nodes[itr->second].adj) {
+        airlines.insert(i.airline);
+    }
+    return airlines.size();
+}
+
+int Application::numberDest(string airportCode) {
+    unordered_set <int> airlines = {};
+
+    auto itr = airportIndex.find(airportCode);
+    if(itr == airportIndex.end()){
+        return -1;
+    }
+
+    for(auto i : graph1->nodes[itr->second].adj) {
+        airlines.insert(i.dest);
+    }
+    return airlines.size();
 }

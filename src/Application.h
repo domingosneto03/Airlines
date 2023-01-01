@@ -51,14 +51,15 @@ public:
 
     void createGraph();
     int numberFlights(string airportCode);
+    int numberAirlines(string airportCode);
+    int numberDest(string airportCode);
 
 private:
     unordered_set<Airport *> airportSet = {};
     unordered_set<Airline *> airlineSet = {};
     vector<Flights> flightsVector = {};
     graph *graph1 = NULL;
-    unordered_map<string, int> airportIndex; //code e index
-
+    unordered_map <string, int> airportIndex; //code e index
 
 };
 

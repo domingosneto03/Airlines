@@ -71,6 +71,8 @@ public:
     */
     double getLongitude();
 
+    bool operator==(const Airport& other) const;
+
 private:
     string code;
     string name;

@@ -36,6 +36,10 @@ double Airport::getLongitude() {
     return this->longitude;
 }
 
+bool Airport::operator==(const Airport& other) const{
+    return this->code == other.code;
+}
+
 /**
  * This function finds the index of a given airport
  * @param airport code of the airport
