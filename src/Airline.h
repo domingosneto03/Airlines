@@ -15,7 +15,7 @@ public:
     * @param callsign
     * @param country
     */
-    Airline(string &code, string &name, string &callsign, string &country);
+    Airline(string code, string name, string callsign, string country);
 
 private:
     string code;

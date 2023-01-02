@@ -3,7 +3,7 @@
 #include "map"
 using namespace std;
 
-Airport::Airport(string &code, string &name, string &city, string &country, double &latitude, double &longitude) {
+Airport::Airport(string code, string name, string city, string country, double latitude, double longitude) {
     this->code = code;
     this->name = name;
     this->city = city;
@@ -12,27 +12,36 @@ Airport::Airport(string &code, string &name, string &city, string &country, doub
     this-> longitude = longitude;
 }
 
-string Airport::getCode() {
+Airport::Airport(string code) {
+    this->code = code;
+    this->name = "";
+    this->city = "";
+    this->country = "";
+    this->latitude = 0.0;
+    this-> longitude = 0.0;
+}
+
+string Airport::getCode() const {
     return this->code;
 }
 
-string Airport::getName() {
+string Airport::getName() const {
     return this->name;
 }
 
-string Airport::getCity(){
+string Airport::getCity() const {
     return this->city;
 }
 
-string Airport::getCountry() {
+string Airport::getCountry() const {
     return this->country;
 }
 
-double Airport::getLatitude() {
+double Airport::getLatitude() const {
     return this->latitude;
 }
 
-double Airport::getLongitude() {
+double Airport::getLongitude() const {
     return this->longitude;
 }
 
