@@ -194,9 +194,66 @@ int Application::numberDest(const string& airportCode) {
 }
 
 int Application::numberCountries(const string& airportCode) {
-    Airport airport2 = Airport(airportCode);
-    auto itr = airportSet.find(airport2);
+    unordered_set <string> countries = {};
 
-    string c = itr->getCountry();
-    return 0;
+    auto itr = airportIndex.find(airportCode);
+    if(itr == airportIndex.end()){
+        return -1;
+    }
+
+    for(auto& i : graph1->nodes[itr->second].adj) {
+        countries.insert(graph1->nodes[i.dest].country);
+    }
+    return countries.size();
+}
+
+unordered_set <int> Application::airportsReachable(int y, const string& airport) {
+    unordered_set <int> reachable;
+    int index = airportIndex[airport];
+    graph1->bfs(index);
+
+    for (int i = 1; i <= graph1->n; i++) {
+        if ((graph1->nodes[i].dist <= y && graph1->nodes[i].dist >= 1) and graph1->nodes[i].dist != airportIndex[airport]) {
+            reachable.insert(i);
+        }
+    }
+    return reachable;
+}
+
+unordered_set <string> Application::countriesReachabe(int y, const string& airport) {
+    unordered_set <string> countries;
+    unordered_set <int> airports = airportsReachable(y,airport);
+    string airportCode;
+
+    for (auto a : airports) {
+        for (auto i : airportIndex) {
+            if (i.second == a) {
+                airportCode = i.first;
+                break;
+            }
+        }
+        auto itr = airportSet.find(airportCode);
+        countries.insert(itr->getCountry());
+    }
+
+    return countries;
+}
+
+unordered_set <string> Application::citiesReachabe(int y, const string& airport) {
+    unordered_set <string> cities;
+    unordered_set <int> airports = airportsReachable(y,airport);
+    string airportCode;
+
+    for (auto a : airports) {
+        for (auto i : airportIndex) {
+            if (i.second == a) {
+                airportCode = i.first;
+                break;
+            }
+        }
+        auto itr = airportSet.find(airportCode);
+        cities.insert(itr->getCity());
+    }
+
+    return cities;
 }

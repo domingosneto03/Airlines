@@ -68,12 +68,15 @@ public:
     int numberAirlines(const string& airportCode);
     int numberDest(const string& airportCode);
     int numberCountries(const string &airportCode);
+    unordered_set<int> airportsReachable(int y, const string& airport);
+    unordered_set<string> countriesReachabe(int y, const string &airport);
+    unordered_set<string> citiesReachabe(int y, const string &airport);
 
 private:
     unordered_set <Airport, AirportHash, EqualAirport> airportSet;
     unordered_set<Airline *> airlineSet = {};
     vector<Flights> flightsVector = {};
-    graph *graph1 = NULL;
+    graph *graph1;
     unordered_map <string, int> airportIndex; //code e index
 
 };

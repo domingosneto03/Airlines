@@ -31,7 +31,7 @@ void Menu::mainMenu() {
             airportMenu();
             break;
         case 2:
-
+            ReachableMenu();
             break;
         case 3:
             exit(-1);
@@ -67,6 +67,7 @@ void Menu::airportMenu() {
             numberDestMenu();
             break;
         case 4:
+            numberCountriesMenu();
             break;
         case 5:
             mainMenu();
@@ -93,6 +94,9 @@ void Menu::repetir(int i) {
                 break;
             case 3:
                 numberDestMenu();
+                break;
+            case 4:
+                numberCountriesMenu();
                 break;
         }
     } else {
@@ -138,4 +142,106 @@ void Menu::numberDestMenu() {
     }
     cout << "There are " << number << " destinations from this airport." << endl;
     repetir(3);
+}
+
+void Menu::numberCountriesMenu() {
+    string code;
+    cout << "Introduce the airport's code:" ;
+    cin >> code;
+    int number = app.numberCountries(code);
+    if(number==-1) {
+        cout << "This option is not valid, Please enter it again." << endl;
+        numberCountriesMenu();
+    }
+    cout << "This airport flies to " << number << " different countries." << endl;
+    repetir(4);
+}
+
+void Menu::ReachableMenu() {
+    int option;
+    cout << "=============Reachable MENU=============" << endl;
+    cout << "1 - Airports" << endl;
+    cout << "2 - Countries" << endl;
+    cout << "3 - Cities" << endl;
+    cout << "4 - Back to the main menu" << endl;
+    cout << "======================================" << endl;
+    cout << "Option:";
+    cin >> option;
+
+    while (option < 1 || option > 4) {
+        cout << "This option is not valid, try again!" << endl;
+        cout << "Option:";
+        cin >> option;
+    }
+
+    switch (option) {
+        case 1:
+            reachableFlightsMenu();
+            break;
+        case 2:
+            reachableCountriesMenu();
+            break;
+        case 3:
+            reachableCitiesMenu();
+            break;
+        case 4:
+            mainMenu();
+            break;
+    }
+}
+
+void Menu::reachableFlightsMenu() {
+    string code;
+    cout << "Introduce the airport's code:" ;
+    cin >> code;
+
+    int max;
+    cout << "Maximum number of flights:" ;
+    cin >> max;
+
+    int number = app.airportsReachable(max, code).size();
+    if(number==-1) {
+        cout << "This option is not valid, Please enter it again." << endl;
+        reachableFlightsMenu();
+    }
+    if(max==1) cout << "This airport flies to " << number << " different airports, with a maximum of " << max << " flight." << endl;
+    else cout << "This airport flies to " << number << " different countries, with a maximum of " << max << " flights." << endl;
+}
+
+void Menu::reachableCountriesMenu() {
+    string code;
+    cout << "Introduce the airport's code:";
+    cin >> code;
+
+    int max;
+    cout << "Maximum number of flights:";
+    cin >> max;
+
+    int number = app.countriesReachabe(max, code).size();
+
+    if(number==-1) {
+        cout << "This option is not valid, Please enter it again." << endl;
+        reachableFlightsMenu();
+    }
+    if(max==1) cout << "This airport flies to " << number << " different countries, with a maximum of " << max << " flight." << endl;
+    else cout << "This airport flies to " << number << " different countries, with a maximum of " << max << " flights." << endl;
+}
+
+void Menu::reachableCitiesMenu() {
+    string code;
+    cout << "Introduce the airport's code:";
+    cin >> code;
+
+    int max;
+    cout << "Maximum number of flights:";
+    cin >> max;
+
+    int number = app.citiesReachabe(max, code).size();
+
+    if(number==-1) {
+        cout << "This option is not valid, Please enter it again." << endl;
+        reachableFlightsMenu();
+    }
+    if(max==1) cout << "This airport flies to " << number << " different countries, with a maximum of " << max << " flight." << endl;
+    else cout << "This airport flies to " << number << " different countries, with a maximum of " << max << " flights." << endl;
 }

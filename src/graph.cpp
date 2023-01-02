@@ -14,7 +14,7 @@ void graph::addEdge(int src, int dest, string airline, double weight) {
 void graph::bfs (int v) {
     for (int i=1; i<=n; i++) {
         nodes[i].visited = false;
-        nodes[i].dist = 10000.0;
+        nodes[i].dist = -1;
     }
     queue<int> q;
     q.push(v);
@@ -27,7 +27,7 @@ void graph::bfs (int v) {
             if (!nodes[w].visited) {
                 q.push(w);
                 nodes[w].visited = true;
-                nodes[w].dist = nodes[u].dist + 1.0;
+                nodes[w].dist = nodes[u].dist + 1;
                 nodes[w].pred = u;
             }
         }
