@@ -239,7 +239,7 @@ unordered_set <string> Application::countriesReachabe(int y, const string& airpo
     return countries;
 }
 
-unordered_set <string> Application::citiesReachabe(int y, const string& airport) {
+unordered_set <string> Application::citiesReachable(int y, const string& airport) {
     unordered_set <string> cities;
     unordered_set <int> airports = airportsReachable(y,airport);
     string airportCode;

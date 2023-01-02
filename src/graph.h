@@ -35,6 +35,7 @@ public:
 
     /**
     * Constructor
+    * Time complexity : O(1)
     * @param nodes - number of nodes
     * @param dir - direction
     */
@@ -42,6 +43,7 @@ public:
 
     /**
     * Add edge from source to destination with a certain weight
+    * Time complexity : O(1)
     * @param src - source airport
     * @param dest - destination airport
     * @param airline - selected airline
@@ -59,14 +61,7 @@ public:
 
     /**
     * Breadth-first search through the graph \n
-    * @return nodes
-    */
-    vector<Node> getNodes(){
-        return nodes;
-    }
-
-    /**
-    * Breadth-first search through the graph \n
+    * Time complexity - O(|V| + |E|)
     * @param v - origin node index
     */
     void bfs(int v);

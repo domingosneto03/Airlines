@@ -10,6 +10,7 @@ class Airline {
 public:
     /**
     * Creates an object of the struct Airline.
+    * Time complexity : O(1)
     * @param code
     * @param name
     * @param callsign

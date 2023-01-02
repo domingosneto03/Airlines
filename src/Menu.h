@@ -9,7 +9,7 @@ public:
     void airportMenu();
     void numberFlightsMenu();
     void numberAirlinesMenu();
-    void repetir(int i);
+
     void numberDestMenu();
     void numberCountriesMenu();
     void reachableFlightsMenu();
@@ -17,6 +17,8 @@ public:
     void reachableCountriesMenu();
 
     void reachableCitiesMenu();
+
+    void repeat(int i);
 };
 
 #endif //PROJECTAED_G24_MENU_H

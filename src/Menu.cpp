@@ -14,7 +14,7 @@ void Menu::mainMenu() {
     int option;
     cout << "===============MAIN MENU===============" << endl;
     cout << "1 - Airport information" << endl;
-    cout << "2 - Airports reachable on a maximum of Y flights" << endl;
+    cout << "2 - Airports/Countries/Cities reachable on a maximum of Y flights" << endl;
     cout << "3 - Exit" << endl;
     cout << "=======================================" << endl;
     cout << "Option:";
@@ -75,7 +75,7 @@ void Menu::airportMenu() {
     }
 }
 
-void Menu::repetir(int i) {
+void Menu::repeat(int i) {
     int a=i;
     string conti;
     cout << "Do you want to see any more? (y/n)" <<
@@ -83,7 +83,15 @@ void Menu::repetir(int i) {
     cin >>
         conti;
     if (conti == "n" || conti == "N") {
-        airportMenu();
+        switch (i) {
+        case 1 : case 2: case 3: case 4:
+                airportMenu();
+                break;
+        case 5: case 6: case 7:
+                ReachableMenu();
+                break;
+        }
+
     } else if (conti == "Y" || conti == "y") {
         switch (i) {
             case 1:
@@ -98,10 +106,19 @@ void Menu::repetir(int i) {
             case 4:
                 numberCountriesMenu();
                 break;
+            case 5:
+                reachableFlightsMenu();
+                break;
+            case 6:
+                reachableCountriesMenu();
+                break;
+            case 7:
+                reachableCitiesMenu();
+                break;
         }
     } else {
         cout << "This option is not valid, Please enter it again." << endl;
-        repetir(a);
+        repeat(a);
     }
 }
 
@@ -115,7 +132,7 @@ void Menu::numberFlightsMenu() {
         numberFlightsMenu();
     }
     cout << "There are " << number << " flights." << endl;
-    repetir(1);
+    repeat(1);
 }
 
 void Menu::numberAirlinesMenu() {
@@ -128,7 +145,7 @@ void Menu::numberAirlinesMenu() {
         numberAirlinesMenu();
     }
     cout << "There are " << number << " airlines from this airport." << endl;
-    repetir(2);
+    repeat(2);
 }
 
 void Menu::numberDestMenu() {
@@ -141,7 +158,7 @@ void Menu::numberDestMenu() {
         numberDestMenu();
     }
     cout << "There are " << number << " destinations from this airport." << endl;
-    repetir(3);
+    repeat(3);
 }
 
 void Menu::numberCountriesMenu() {
@@ -154,12 +171,12 @@ void Menu::numberCountriesMenu() {
         numberCountriesMenu();
     }
     cout << "This airport flies to " << number << " different countries." << endl;
-    repetir(4);
+    repeat(4);
 }
 
 void Menu::ReachableMenu() {
     int option;
-    cout << "=============Reachable MENU=============" << endl;
+    cout << "=============REACHABLE MENU=============" << endl;
     cout << "1 - Airports" << endl;
     cout << "2 - Countries" << endl;
     cout << "3 - Cities" << endl;
@@ -206,6 +223,8 @@ void Menu::reachableFlightsMenu() {
     }
     if(max==1) cout << "This airport flies to " << number << " different airports, with a maximum of " << max << " flight." << endl;
     else cout << "This airport flies to " << number << " different countries, with a maximum of " << max << " flights." << endl;
+
+    repeat(5);
 }
 
 void Menu::reachableCountriesMenu() {
@@ -225,6 +244,8 @@ void Menu::reachableCountriesMenu() {
     }
     if(max==1) cout << "This airport flies to " << number << " different countries, with a maximum of " << max << " flight." << endl;
     else cout << "This airport flies to " << number << " different countries, with a maximum of " << max << " flights." << endl;
+
+    repeat(6);
 }
 
 void Menu::reachableCitiesMenu() {
@@ -236,7 +257,7 @@ void Menu::reachableCitiesMenu() {
     cout << "Maximum number of flights:";
     cin >> max;
 
-    int number = app.citiesReachabe(max, code).size();
+    int number = app.citiesReachable(max, code).size();
 
     if(number==-1) {
         cout << "This option is not valid, Please enter it again." << endl;
@@ -244,4 +265,6 @@ void Menu::reachableCitiesMenu() {
     }
     if(max==1) cout << "This airport flies to " << number << " different countries, with a maximum of " << max << " flight." << endl;
     else cout << "This airport flies to " << number << " different countries, with a maximum of " << max << " flights." << endl;
+
+    repeat(7);
 }
