@@ -210,8 +210,6 @@ public:
     * @param airline - airline name
     * Time complexity - O(n) + O(|V| + |E|)
     */
-    void shortestAirlinePath(const string &code1, const string &code2, const string &airline);
-
     void shortestAirlineListPath(const string &code1, const string &code2, const unordered_set<string>& airlines);
 
 private:
