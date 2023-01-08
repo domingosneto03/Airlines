@@ -84,6 +84,7 @@ public:
     * @param isArticulationPoint - stores a boolean value indicating whether each vertex is a pivot point or not.
     */
     void findArticulationPoints(int u, vector<int> &d, vector<int> &small, vector<int> &parent, vector<bool> &isArticulationPoint);
+    vector<string> shortestPath_bfs(int v, int t);
 };
 
 #endif //PROJECTAED_G24_GRAPH_H

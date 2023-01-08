@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/InesO/Desktop/Project2AED_G24/cmake-build-debug",
-		"source" : "C:/Users/InesO/Desktop/Project2AED_G24"
+		"build" : "C:/Users/domin/Faculdade/AED/Project2AED_G24/cmake-build-debug",
+		"source" : "C:/Users/domin/Faculdade/AED/Project2AED_G24"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 3
+		"minor" : 4
 	}
 }

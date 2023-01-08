@@ -1,5 +1,6 @@
 #include "graph.h"
 #include <map>
+#include <algorithm>
 
 graph::graph(int num, bool dir) : n(num), hasDir(dir), nodes(num + 1) {
 
@@ -56,6 +57,39 @@ void graph::bfs_diameter(int v, int& diameter) {
             }
         }
     }
+}
+
+vector<string> graph::shortestPath_bfs(int v, int t){
+    for (int i=1; i<=n; i++) {
+        nodes[i].visited = false;
+        nodes[i].dist = -1;
+    }
+    queue<int> q;
+    q.push(v);
+    nodes[v].dist = 0;
+    nodes[v].visited = true;
+    nodes[v].pred = -1;
+    while (!q.empty()) {
+        int u = q.front(); q.pop();
+        for (const auto& e : nodes[u].adj) {
+            int w = e.dest;
+            if (!nodes[w].visited) {
+                q.push(w);
+                nodes[w].visited = true;
+                nodes[w].dist = nodes[u].dist + 1;
+                nodes[w].pred = u;
+            }
+        }
+    }
+    vector<string> airport_route;
+    airport_route.push_back(nodes[t].code);
+    int current = t;
+    while(current !=v) {
+        current = nodes[current].pred;
+        airport_route.push_back(nodes[current].code);
+    }
+    reverse(airport_route.begin(), airport_route.end());
+    return airport_route;
 }
 
 list<tuple<string,string>> graph::getPath(int a, int b) {

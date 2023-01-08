@@ -19,11 +19,12 @@ void Menu::mainMenu() {
     cout << "4 - Statistics" << endl;
     cout << "5 - Articulation points" << endl;
     cout << "6 - Exit" << endl;
+    cout << "7 - Teste Shortest" << endl;
     cout << "=======================================" << endl;
     cout << "Option:";
     cin >> option;
 
-    while (option < 1 || option > 6) {
+    while (option < 1 || option > 7) {
         cout << "This option is not valid, try again!" << endl;
         cout << "Option:";
         cin >> option;
@@ -48,7 +49,20 @@ void Menu::mainMenu() {
             break;
         case 6:
             exit(-1);
+            break;
+        case 7:
+            testMenu();
+            break;
     }
+}
+void Menu::testMenu() {
+    string code1;
+    string code2;
+    cout << "Introduce the airport's code1:" ;
+    cin >> code1;
+    cout << "Introduce the airport's code2:" ;
+    cin >> code2;
+    app.shortestPathAirports(code1, code2);
 }
 
 void Menu::airportMenu() {

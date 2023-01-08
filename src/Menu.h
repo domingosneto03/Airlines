@@ -19,6 +19,7 @@ public:
     void statisticsMenu();
 
     void CountryStatisticsMenu();
+    void testMenu();
 
     static void ArticulationPointsAirlinesMenu();
 };
