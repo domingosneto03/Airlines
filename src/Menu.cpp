@@ -48,20 +48,24 @@ void Menu::mainMenu() {
             break;
         case 6:
             exit(-1);
+        default:
+            mainMenu();
     }
 }
+
 
 void Menu::ShortPathMenu() {
     int option;
     cout << "=============SHORTEST PATH MENU=============" << endl;
     cout << "1 - Enter an airport code" << endl;
     cout << "2 - Enter a city" << endl;
-    cout << "3 - Back to the main menu" << endl;
+    cout << "3 - Enter coordinates" << endl;
+    cout << "4 - Back to the main menu" << endl;
     cout << "===========================================" << endl;
     cout << "Option:";
     cin >> option;
 
-    while (option < 1 || option > 3) {
+    while (option < 1 || option > 4) {
         cout << "This option is not valid, try again!" << endl;
         cout << "Option:";
         cin >> option;
@@ -77,7 +81,12 @@ void Menu::ShortPathMenu() {
             ShortPathMenu();
             break;
         case 3:
+            AirportKmPathMenu();
+            ShortPathMenu();
+        case 4:
             exit(-1);
+        default:
+            mainMenu();
     }
 }
 
@@ -95,11 +104,30 @@ void Menu::AirportCityPathMenu() {
     string code1;
     string code2;
     cout << "Introduce the departure airport's city:" ;
-    cin >> code1;
+    getline(cin >> ws,code1);
     cout << "Introduce the arrival airport's code:" ;
     cin >> code2;
     app.shortestCityPath(code1, code2);
 }
+
+
+void Menu::AirportKmPathMenu() {
+    double longitude;
+    double latitude;
+    string code2;
+    double distance;
+
+    cout << "Introduce the longitude:" ;
+    cin >> longitude;
+    cout << "Introduce the latitude:" ;
+    cin >> latitude;
+    cout << "Introduce the arrival airport's code:" ;
+    cin >> code2;
+    cout << "Enter the maximum distance, in km, you wish to travel to an airport:" ;
+    cin >> distance;
+    app.shortestKmPath(longitude, latitude, code2, distance);
+}
+
 
 void Menu::airportMenu() {
     int option;
@@ -135,6 +163,8 @@ void Menu::airportMenu() {
         case 5:
             mainMenu();
             break;
+        default:
+            mainMenu();
     }
 }
 
@@ -146,12 +176,14 @@ void Menu::repeat(int i) {
         conti;
     if (conti == "n" || conti == "N") {
         switch (i) {
-        case 1 : case 2: case 3: case 4:
+            case 1 : case 2: case 3: case 4:
                 airportMenu();
                 break;
-        case 5: case 6: case 7:
+            case 5: case 6: case 7:
                 ReachableMenu();
                 break;
+            default:
+                mainMenu();
         }
 
     } else if (conti == "Y" || conti == "y") {
@@ -177,6 +209,8 @@ void Menu::repeat(int i) {
             case 7:
                 reachableCitiesMenu();
                 break;
+            default:
+                mainMenu();
         }
     } else {
         cout << "This option is not valid, Please enter it again." << endl;
@@ -266,6 +300,8 @@ void Menu::ReachableMenu() {
         case 4:
             mainMenu();
             break;
+        default:
+            mainMenu();
     }
 }
 
@@ -362,6 +398,8 @@ void Menu::statisticsMenu() {
         case 3:
             mainMenu();
             break;
+        default:
+            mainMenu();
     }
 }
 

@@ -12,10 +12,6 @@
 
 using namespace std;
 
-void Application() {
-
-}
-
 unordered_set <Airport, Application::AirportHash, Application::EqualAirport> Application::readAirports() {
     fstream fin;
     fin.open("../dataset/airports.csv", ios::in);
@@ -25,7 +21,7 @@ unordered_set <Airport, Application::AirportHash, Application::EqualAirport> App
     while (true) {
         row.clear();
         getline(fin, line);
-        if (line == "") break;
+        if (line.empty()) break;
         stringstream s(line);
         while (getline(s, word, ',')) {
             row.push_back(word);
@@ -48,36 +44,6 @@ unordered_set <Airport, Application::AirportHash, Application::EqualAirport> App
     return airportSet;
 }
 
-unordered_set<Airline*> Application::readAirlines() {
-    fstream fin;
-    fin.open("../dataset/airlines.csv", ios::in);
-    vector<string> row;
-    string line, word, temp;
-    int count = 0;
-
-
-    while (true) {
-        row.clear();
-        getline(fin, line);
-        if (line == "") break;
-        stringstream s(line);
-        while (getline(s, word, ',')) {
-            row.push_back(word);
-        }
-        if (count == 0) {
-            count++;
-            continue;
-        }
-        string code = row[0];
-        string name = row[1];
-        string callsign = row[2];
-        string country = row[3];
-
-        airlineSet.insert(new Airline(code, name, callsign, country));
-    }
-    return airlineSet;
-}
-
 vector<Flights> Application::readFlights() {
     fstream fin;
     fin.open("../dataset/flights.csv", ios::in);
@@ -87,7 +53,7 @@ vector<Flights> Application::readFlights() {
     while (true) {
         row.clear();
         getline(fin, line);
-        if (line == "") break;
+        if (line.empty()) break;
         stringstream s(line);
         while (getline(s, word, ',')) {
             row.push_back(word);
@@ -111,21 +77,15 @@ vector<Flights> Application::readFlights() {
 
 void Application::setGraphNodes(graph &graph, unordered_map<string, int> &airportsIndex, unordered_set<Airport, AirportHash, EqualAirport> &airports){
     int count=1;
-    for (auto itr = airports.begin(); itr != airports.end(); itr++) {
-        graph.nodes[count].code = itr->getCode();
-        graph.nodes[count].name = itr->getName();
-        graph.nodes[count].city = itr->getCity();
-        graph.nodes[count].country = itr->getCountry();
-        graph.nodes[count].latitude = itr->getLatitude();
-        graph.nodes[count].longitude = itr->getLongitude();
-        airportsIndex.insert(make_pair(itr->getCode(), count));
+    for (const auto & airport : airports) {
+        graph.nodes[count].code = airport.getCode();
+        graph.nodes[count].name = airport.getName();
+        graph.nodes[count].city = airport.getCity();
+        graph.nodes[count].country = airport.getCountry();
+        graph.nodes[count].latitude = airport.getLatitude();
+        graph.nodes[count].longitude = airport.getLongitude();
+        airportsIndex.insert(make_pair(airport.getCode(), count));
         count++;
-    }
-}
-
-void Application::clearEdges(graph &graph) {
-    for (int i = 1; i <= graph.n; i++) {
-        graph.nodes[i].adj.clear();
     }
 }
 
@@ -227,7 +187,7 @@ unordered_set <string> Application::countriesReachable(int y, const string& airp
     string airportCode;
 
     for (auto a : airports) {
-        for (auto i : airportIndex) {
+        for (const auto& i : airportIndex) {
             if (i.second == a) {
                 airportCode = i.first;
                 break;
@@ -246,7 +206,7 @@ unordered_set <string> Application::citiesReachable(int y, const string& airport
     string airportCode;
 
     for (auto a : airports) {
-        for (auto i : airportIndex) {
+        for (const auto& i : airportIndex) {
             if (i.second == a) {
                 airportCode = i.first;
                 break;
@@ -263,13 +223,13 @@ vector<string> Application::shortestPathAirports(const string& airport1, const s
     int s = airportIndex[airport1];
     int t = airportIndex[airport2];
     vector<string> airport_route = graph1->shortestPath_bfs(s,t);
-    
+
     return airport_route;
 }
 
 vector<pair<string,int>> Application::airportCity(const string& city) {
     vector<pair<string,int>> citiesAirports;
-    for(auto a : airportSet) {
+    for(const auto& a : airportSet) {
         if(a.getCity() == city) {
             citiesAirports.emplace_back(a.getCode(),0);
         }
@@ -280,10 +240,10 @@ vector<pair<string,int>> Application::airportCity(const string& city) {
 void Application::shortestCityPath(const string& code1, const string& code2) {
     vector<pair<string,int>> citiesAirports = airportCity(code1);
     int i=0;
-    int tamanho=0;
+    int size=0;
     int min = INT_MAX;
 
-    for(auto c: citiesAirports) {
+    for(const auto& c: citiesAirports) {
         int s = airportIndex[c.first];
         int t = airportIndex[code2];
         vector<string> airport_route = graph1->shortestPath_bfs(s,t);
@@ -291,21 +251,21 @@ void Application::shortestCityPath(const string& code1, const string& code2) {
         i++;
     }
 
-    for(auto a: citiesAirports) {
-        if(a.second != 0) tamanho++;
+    for(const auto& a: citiesAirports) {
+        if(a.second != 0) size++;
         if(a.second < min) {
             min = a.second;
         }
     }
 
-    if(tamanho ==0) {
+    if(size ==0) {
         cout << "It is not possible to realize this route." << endl;
     }
     else {
         string airline;
-        for(int i=0; i<citiesAirports.size(); i++) {
-            if(citiesAirports[i].second == min) {
-                shortestPath(citiesAirports[i].first, code2);
+        for(auto & citiesAirport : citiesAirports) {
+            if(citiesAirport.second == min) {
+                shortestPath(citiesAirport.first, code2);
             }
         }
     }
@@ -318,7 +278,7 @@ void Application::shortestPath(const string& code1, const string& code2) {
     for(int i=1; i<airport_route.size(); i++) {
         string target = airport_route[i];
         string source = airport_route[i-1];
-        for(auto x : flightsVector) {
+        for(const auto& x : flightsVector) {
             if(x.source == source && x.target == target)
                 airline = x.airline;
         }
@@ -369,7 +329,7 @@ void Application::redeStatistics(int k) {
         count += n.adj.size();
         pair<string, int> s = make_pair(n.code,n.adj.size());
         numFlights.push_back(s);
-        for (auto a: n.adj) {
+        for (const auto& a: n.adj) {
             differentAirlines.insert(a.airline);
         }
     }
@@ -423,5 +383,51 @@ void Application::countryStatistics(int k, string country) {
 
     for(int i=0; i<k; i++) {
         cout << numFlights[i].first << " : " << numFlights[i].second << endl;
+    }
+}
+
+vector<pair<string,int>> Application::findAirportsWithinDistance(double longitude, double latitude, double distance) {
+    vector<pair<string,int>> nearbyAirports;
+
+    for (const auto& node : graph1->nodes) {
+        double dist = haversine(latitude, longitude, node.latitude, node.longitude);
+        if (dist <= distance) {
+            nearbyAirports.emplace_back(node.code,0);
+        }
+    }
+    return nearbyAirports;
+}
+
+void Application::shortestKmPath(double longitude, double latitude, string code2, double distance) {
+    vector<pair<string,int>> closestAirports = findAirportsWithinDistance(longitude, latitude, distance);
+    int i=0;
+    int size=0;
+    int min = INT_MAX;
+
+    for(const auto& c: closestAirports) {
+        int s = airportIndex[c.first];
+        int t = airportIndex[code2];
+        vector<string> airport_route = graph1->shortestPath_bfs(s,t);
+        closestAirports[i].second = airport_route.size()-1;
+        i++;
+    }
+
+    for(const auto& a: closestAirports) {
+        if(a.second != 0) size++;
+        if(a.second < min) {
+            min = a.second;
+        }
+    }
+
+    if(size ==0) {
+        cout << "It is not possible to realize this route." << endl;
+    }
+    else {
+        string airline;
+        for(auto & citiesAirport : closestAirports) {
+            if(citiesAirport.second == min) {
+                shortestPath(citiesAirport.first, code2);
+            }
+        }
     }
 }

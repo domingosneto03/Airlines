@@ -75,6 +75,14 @@ public:
     void bfs_diameter(int v, int &diameter);
 
     /**
+    * Breadth-first, to calculate the shortest path, search through the graph
+    * Time complexity - O(|V| + |E|)
+    * @param v - origin node index
+    * @param v - target node index
+    */
+    vector<string> shortestPath_bfs(int v, int t);
+
+    /**
     * Find articulation Points
     * Time complexity - O(|V| + |E|)
     * @param u - origin node index
@@ -84,7 +92,7 @@ public:
     * @param isArticulationPoint - stores a boolean value indicating whether each vertex is a pivot point or not.
     */
     void findArticulationPoints(int u, vector<int> &d, vector<int> &small, vector<int> &parent, vector<bool> &isArticulationPoint);
-    vector<string> shortestPath_bfs(int v, int t);
+
 };
 
 #endif //PROJECTAED_G24_GRAPH_H

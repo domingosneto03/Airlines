@@ -13,7 +13,7 @@ struct Flights {
     string target;
     string airline;
 
-    friend bool operator<(Flights a, Flights b) {
+    friend bool operator<(const Flights& a, const Flights& b) {
         if (b.source == a.source) {
             if (b.target == a.target) {
                 return b.airline < a.airline;
@@ -52,34 +52,20 @@ public:
     unordered_set<Airport, Application::AirportHash, Application::EqualAirport> readAirports();
 
     /**
-    * Reads the file airlines.csv and stores it in a unordered_set, using the Airline constructor.
-    * Complexity : O(n)
-    * @return an unordered_set with all airlines
-    */
-    unordered_set<Airline *> readAirlines();
-
-    /**
     * Reads the file flights.csv and stores it in a vector, using a Flights struct.
     * Complexity : O(n)
     * @return an vector with all flights
     */
     vector<Flights> readFlights();
 
-     /**
-     * Set the nodes information
-     * Time complexity - O(|V|*log(|V|))
-     * @param graph1 - graph with all nodes
-     * @param AirportIndex - a map containing a index for each airport
-     * @param airports - vector with all the airports
-     */
-    void setGraphNodes(graph &graph, unordered_map<string, int> &airportsIndex, unordered_set<Airport, AirportHash, EqualAirport> &airports);
-
     /**
-    * Cleaning/removal of the edges between nodes in the graph
-    * Time complexity - O(|E|)
-    * @param graph - graph with all nodes
+    * Set the nodes information
+    * Time complexity - O(|V|*log(|V|))
+    * @param graph1 - graph with all nodes
+    * @param AirportIndex - a map containing a index for each airport
+    * @param airports - vector with all the airports
     */
-    void clearEdges(graph &graph);
+    static void setGraphNodes(graph &graph, unordered_map<string, int> &airportsIndex, unordered_set<Airport, AirportHash, EqualAirport> &airports);
 
     /**
     * Creating the graph with all nodes and edges
@@ -168,18 +154,63 @@ public:
     */
     void countryStatistics(int k, string country);
 
+    /**
+    * Statistics of a country, such as number of airports, number of flights, number of airlines and top-k of airports.
+    * Time complexity - O(|V| * log(|V|) + |V| + |E|))
+    */
     vector<string> shortestPathAirports(const string& airport1, const string& airport2);
+
+    /**
+    * Calculates the shortest path (fewest flights) between two airports.
+    * @param code1 - code of the departure airport
+    * @param code2 - code of the departure airport
+    * Time complexity - O(n) + O(|V| + |E|)
+    */
     void shortestPath(const string& code1, const string& code2);
+
+    /**
+    * Checks out all the cities that exist at an airport.
+    * @param city
+    * Time complexity - O(n)
+    * @return returns a vector with all airports and an index of 0
+    */
     vector<pair<string,int>> airportCity(const string& city);
+
+    /**
+    * Calculates the shortest path (fewest flights) between a city and an airport.
+    * @param code1 - city of the departure airport
+    * @param code2 - code of the departure airport
+    * Time complexity - O(n) + O(|V| + |E|)
+    */
     void shortestCityPath(const string& code1, const string& code2);
+
+    /**
+    * Find the airports within x Km of me.
+    * @param longitude - longitude of the departure airport
+    * @param latitude - latitude of the departure airport
+    * @param distance - maximum distance
+    * Time complexity - O(n)
+    */
+    vector<pair<string,int>> findAirportsWithinDistance(double longitude, double latitude, double distance);
+
+    /**
+    * Calculates the shortest path (fewest flights) between a city and an airport.
+    * @param longitude - longitude of the departure airport
+    * @param latitude - latitude of the departure airport
+    * @param code2 - code of the departure airport
+    * @param distance - maximum distance
+    * Time complexity - O(n) + O(|V| + |E|)
+    */
+    void shortestKmPath(double longitude, double latitude, string code2, double distance);
 
 private:
     unordered_set <Airport, AirportHash, EqualAirport> airportSet;
-    unordered_set<Airline *> airlineSet = {};
     vector<Flights> flightsVector = {};
     graph *graph1;
     unordered_map <string, int> airportIndex; //code e index
     vector <string> articulationPointsRede;
+
+
 };
 
 #endif //PROJECTAED_G24_APPLICATION_H
