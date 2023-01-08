@@ -17,13 +17,10 @@ public:
     void reachableCitiesMenu();
     void repeat(int i);
     void statisticsMenu();
-
     void CountryStatisticsMenu();
-    void testMenu();
-
-    static void ArticulationPointsAirlinesMenu();
-
+    static void AirportCodePathMenu();
     void ShortPathMenu();
+    static void AirportCityPathMenu();
 };
 
 #endif //PROJECTAED_G24_MENU_H

@@ -267,7 +267,51 @@ vector<string> Application::shortestPathAirports(const string& airport1, const s
     return airport_route;
 }
 
-void Application::shortestPath(string code1, string code2) {
+vector<pair<string,int>> Application::airportCity(const string& city) {
+    vector<pair<string,int>> citiesAirports;
+    for(auto a : airportSet) {
+        if(a.getCity() == city) {
+            citiesAirports.emplace_back(a.getCode(),0);
+        }
+    }
+    return citiesAirports;
+}
+
+void Application::shortestCityPath(const string& code1, const string& code2) {
+    vector<pair<string,int>> citiesAirports = airportCity(code1);
+    int i=0;
+    int tamanho=0;
+    int min = INT_MAX;
+
+    for(auto c: citiesAirports) {
+        int s = airportIndex[c.first];
+        int t = airportIndex[code2];
+        vector<string> airport_route = graph1->shortestPath_bfs(s,t);
+        citiesAirports[i].second = airport_route.size()-1;
+        i++;
+    }
+
+    for(auto a: citiesAirports) {
+        if(a.second != 0) tamanho++;
+        if(a.second < min) {
+            min = a.second;
+        }
+    }
+
+    if(tamanho ==0) {
+        cout << "It is not possible to realize this route." << endl;
+    }
+    else {
+        string airline;
+        for(int i=0; i<citiesAirports.size(); i++) {
+            if(citiesAirports[i].second == min) {
+                shortestPath(citiesAirports[i].first, code2);
+            }
+        }
+    }
+}
+
+void Application::shortestPath(const string& code1, const string& code2) {
     vector<string>airport_route = shortestPathAirports(code1, code2);
     cout << "Shortest path: " << endl;
     string airline;

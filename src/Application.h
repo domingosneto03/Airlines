@@ -169,7 +169,9 @@ public:
     void countryStatistics(int k, string country);
 
     vector<string> shortestPathAirports(const string& airport1, const string& airport2);
-    void shortestPath(string code1, string code2);
+    void shortestPath(const string& code1, const string& code2);
+    vector<pair<string,int>> airportCity(const string& city);
+    void shortestCityPath(const string& code1, const string& code2);
 
 private:
     unordered_set <Airport, AirportHash, EqualAirport> airportSet;
@@ -178,9 +180,6 @@ private:
     graph *graph1;
     unordered_map <string, int> airportIndex; //code e index
     vector <string> articulationPointsRede;
-
-
-
 };
 
 #endif //PROJECTAED_G24_APPLICATION_H

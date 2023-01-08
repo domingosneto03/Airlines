@@ -54,7 +54,7 @@ void Menu::mainMenu() {
 void Menu::ShortPathMenu() {
     int option;
     cout << "=============SHORTEST PATH MENU=============" << endl;
-    cout << "1 - Enter an airport code  " << endl;
+    cout << "1 - Enter an airport code" << endl;
     cout << "2 - Enter a city" << endl;
     cout << "3 - Back to the main menu" << endl;
     cout << "===========================================" << endl;
@@ -69,18 +69,19 @@ void Menu::ShortPathMenu() {
 
     switch (option) {
         case 1:
-            testMenu();
+            AirportCodePathMenu();
             ShortPathMenu();
             break;
         case 2:
-
+            AirportCityPathMenu();
+            ShortPathMenu();
             break;
         case 3:
             exit(-1);
     }
 }
 
-void Menu::testMenu() {
+void Menu::AirportCodePathMenu() {
     string code1;
     string code2;
     cout << "Introduce the departure airport's code:" ;
@@ -88,6 +89,16 @@ void Menu::testMenu() {
     cout << "Introduce the arrival airport's code:" ;
     cin >> code2;
     app.shortestPath(code1, code2);
+}
+
+void Menu::AirportCityPathMenu() {
+    string code1;
+    string code2;
+    cout << "Introduce the departure airport's city:" ;
+    cin >> code1;
+    cout << "Introduce the arrival airport's code:" ;
+    cin >> code2;
+    app.shortestCityPath(code1, code2);
 }
 
 void Menu::airportMenu() {
