@@ -158,6 +158,11 @@ public:
     */
     void CountryStatisticsMenu();
 
+    /**
+    * @brief Displays a menu that allows the user to find the shortest path between two airports through a specific airline.
+    * @details Prompts the user to enter the codes for the departure and arrival airports, as well as the name of the airline.
+    * Calls the `shortestAirlinePath` function of the `app` object to find and display the shortest path.
+    */
     void AirlinePathMenu();
 };
 

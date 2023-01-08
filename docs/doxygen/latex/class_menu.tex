@@ -31,9 +31,8 @@ void \mbox{\hyperlink{class_menu_a507094bbf82ed6960e8e3543a4cf5466}{statistics\+
 \begin{DoxyCompactList}\small\item\em Displays a menu with options for displaying statistics about the entire network or about a specific country, and prompts the user to select an option. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_menu_a1ce8e1cb54c12f607b04a62b4a308775}{Country\+Statistics\+Menu}} ()
 \begin{DoxyCompactList}\small\item\em Prompts the user to enter a country name and a value for k, and calls the country\+Statistics function of the App class, passing the entered values as arguments. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_menu_a6f4334b4188f7d5ec854876964cddeea}\label{class_menu_a6f4334b4188f7d5ec854876964cddeea}} 
-void {\bfseries Airline\+Path\+Menu} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_menu_a6f4334b4188f7d5ec854876964cddeea}{Airline\+Path\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Displays a menu that allows the user to find the shortest path between two airports through a specific airline. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -49,7 +48,17 @@ static void {\bfseries Airport\+Km\+Path\+Menu} ()
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_menu_a4a6646f51bb4ac2828f47c89babf8bf0}\label{class_menu_a4a6646f51bb4ac2828f47c89babf8bf0}} 
+\mbox{\Hypertarget{class_menu_a6f4334b4188f7d5ec854876964cddeea}\label{class_menu_a6f4334b4188f7d5ec854876964cddeea}} 
+\index{Menu@{Menu}!AirlinePathMenu@{AirlinePathMenu}}
+\index{AirlinePathMenu@{AirlinePathMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{AirlinePathMenu()}{AirlinePathMenu()}}
+{\footnotesize\ttfamily void Menu\+::\+Airline\+Path\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays a menu that allows the user to find the shortest path between two airports through a specific airline. 
+
+Prompts the user to enter the codes for the departure and arrival airports, as well as the name of the airline. Calls the {\ttfamily shortest\+Airline\+Path} function of the {\ttfamily app} object to find and display the shortest path. \mbox{\Hypertarget{class_menu_a4a6646f51bb4ac2828f47c89babf8bf0}\label{class_menu_a4a6646f51bb4ac2828f47c89babf8bf0}} 
 \index{Menu@{Menu}!airportMenu@{airportMenu}}
 \index{airportMenu@{airportMenu}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{airportMenu()}{airportMenu()}}
