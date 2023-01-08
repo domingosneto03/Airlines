@@ -260,22 +260,27 @@ unordered_set <string> Application::citiesReachable(int y, const string& airport
 }
 
 vector<string> Application::shortestPathAirports(const string& airport1, const string& airport2) {
-    vector<string> flights;
     int s = airportIndex[airport1];
     int t = airportIndex[airport2];
     vector<string> airport_route = graph1->shortestPath_bfs(s,t);
-    /*
+    
+    return airport_route;
+}
+
+void Application::shortestPath(string code1, string code2) {
+    vector<string>airport_route = shortestPathAirports(code1, code2);
+    cout << "Shortest path: " << endl;
+    string airline;
     for(int i=1; i<airport_route.size(); i++) {
         string target = airport_route[i];
         string source = airport_route[i-1];
         for(auto x : flightsVector) {
             if(x.source == source && x.target == target)
-                string airline = x.airline;
+                airline = x.airline;
         }
+        cout << source << " -> " << target << ": " << airline << endl;
     }
-     */
-    
-    return flights;
+    cout << endl;
 }
 
 void Application::ArticulationPointsRede() {

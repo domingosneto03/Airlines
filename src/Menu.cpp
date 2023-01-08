@@ -13,18 +13,17 @@ Menu::Menu() {
 void Menu::mainMenu() {
     int option;
     cout << "===============MAIN MENU===============" << endl;
-    cout << "1 - MELHOR CASO" << endl;
+    cout << "1 - Best route" << endl;
     cout << "2 - Airport information" << endl;
     cout << "3 - Airports/Countries/Cities reachable on a maximum of Y flights" << endl;
     cout << "4 - Statistics" << endl;
     cout << "5 - Articulation points" << endl;
     cout << "6 - Exit" << endl;
-    cout << "7 - Teste Shortest" << endl;
     cout << "=======================================" << endl;
     cout << "Option:";
     cin >> option;
 
-    while (option < 1 || option > 7) {
+    while (option < 1 || option > 6) {
         cout << "This option is not valid, try again!" << endl;
         cout << "Option:";
         cin >> option;
@@ -32,7 +31,7 @@ void Menu::mainMenu() {
 
     switch (option) {
         case 1:
-            airportMenu();
+            ShortPathMenu();
             break;
         case 2:
             airportMenu();
@@ -49,20 +48,46 @@ void Menu::mainMenu() {
             break;
         case 6:
             exit(-1);
-            break;
-        case 7:
-            testMenu();
-            break;
     }
 }
+
+void Menu::ShortPathMenu() {
+    int option;
+    cout << "=============SHORTEST PATH MENU=============" << endl;
+    cout << "1 - Enter an airport code  " << endl;
+    cout << "2 - Enter a city" << endl;
+    cout << "3 - Back to the main menu" << endl;
+    cout << "===========================================" << endl;
+    cout << "Option:";
+    cin >> option;
+
+    while (option < 1 || option > 3) {
+        cout << "This option is not valid, try again!" << endl;
+        cout << "Option:";
+        cin >> option;
+    }
+
+    switch (option) {
+        case 1:
+            testMenu();
+            ShortPathMenu();
+            break;
+        case 2:
+
+            break;
+        case 3:
+            exit(-1);
+    }
+}
+
 void Menu::testMenu() {
     string code1;
     string code2;
-    cout << "Introduce the airport's code1:" ;
+    cout << "Introduce the departure airport's code:" ;
     cin >> code1;
-    cout << "Introduce the airport's code2:" ;
+    cout << "Introduce the arrival airport's code:" ;
     cin >> code2;
-    app.shortestPathAirports(code1, code2);
+    app.shortestPath(code1, code2);
 }
 
 void Menu::airportMenu() {

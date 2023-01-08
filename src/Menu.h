@@ -22,6 +22,8 @@ public:
     void testMenu();
 
     static void ArticulationPointsAirlinesMenu();
+
+    void ShortPathMenu();
 };
 
 #endif //PROJECTAED_G24_MENU_H
