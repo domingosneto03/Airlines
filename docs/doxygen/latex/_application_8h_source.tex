@@ -1,0 +1,104 @@
+\hypertarget{_application_8h_source}{}\doxysection{Application.\+h}
+\label{_application_8h_source}\index{src/Application.h@{src/Application.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PROJECTAED\_G24\_APPLICATION\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PROJECTAED\_G24\_APPLICATION\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Airport.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Airline.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}graph.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_flights}{Flights}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{string}\ source;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{string}\ target;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{string}\ airline;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ operator<(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_flights}{Flights}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_flights}{Flights}}\&\ b)\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (b.source\ ==\ a.source)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (b.target\ ==\ a.target)\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ b.airline\ <\ a.airline;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ b.target\ <\ a.target;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ b.source\ <\ a.source;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_application}{Application}}\ \{}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_application_1_1_airport_hash}{AirportHash}}\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ std::size\_t\ operator()(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_airport}{Airport}}\&\ airport)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ h=0;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ h\ =\ 37\ *\ h\ +\ std::hash<std::string>()(airport.\mbox{\hyperlink{class_airport_ad1369e1d47c87e205f1718b853a66d54}{getCode}}());}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ h;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_application_1_1_equal_airport}{EqualAirport}}\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator()(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_airport}{Airport}}\&\ airport1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_airport}{Airport}}\&\ airport2)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ airport1\ ==\ airport2;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00052\ \ \ \ \ unordered\_set<Airport,\ Application::AirportHash,\ Application::EqualAirport>\ \mbox{\hyperlink{class_application_a5a61cbfea80234c6c72f5bf95a32be94}{readAirports}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00059\ \ \ \ \ vector<Flights>\ \mbox{\hyperlink{class_application_a7451872cce6fb46563c68e0856685d05}{readFlights}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_application_aec3a09f5f3d8506e5728273d3b4ae6b4}{setGraphNodes}}(\mbox{\hyperlink{classgraph}{graph}}\ \&\mbox{\hyperlink{classgraph}{graph}},\ unordered\_map<string,\ int>\ \&airportsIndex,\ unordered\_set<Airport,\ AirportHash,\ EqualAirport>\ \&airports);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_application_a72d57f4c2015a5d6431a113a8a650fe9}{createGraph}}();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_application_ac27f9026b96bb7ae1c106aecdf663570}{numberFlights}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ airportCode);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_application_ad29d028986095defab6d36a7259893b6}{numberAirlines}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ airportCode);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_application_adbcbd00717d8acd17f4601d81b75bd57}{numberDest}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ airportCode);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_application_a2895eaf2dad028cdaae62f216d21adc9}{numberCountries}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&airportCode);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00114\ \ \ \ \ unordered\_set<int>\ \mbox{\hyperlink{class_application_acce34378a6368f7fd68a34e67586f044}{airportsReachable}}(\textcolor{keywordtype}{int}\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ airport);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00122\ \ \ \ \ unordered\_set<string>\ \mbox{\hyperlink{class_application_a830e38129405dd0fa3796e95950dc684}{countriesReachable}}(\textcolor{keywordtype}{int}\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&airport);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00130\ \ \ \ \ unordered\_set<string>\ \mbox{\hyperlink{class_application_a2477b8eb7373babfab69ecd914147b6a}{citiesReachable}}(\textcolor{keywordtype}{int}\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&airport);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_application_a846c8b60714bb139160d82fc9eaa0502}{ArticulationPointsRede}}();}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_application_a0dd8ff21d294d7d50b5c4a6287e04a95}{redeStatistics}}(\textcolor{keywordtype}{int}\ k);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_application_a58987238477080967161954cca23740c}{diameter\_Rede}}();}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_application_ac0054ee829f343580925566cee0ae4fd}{countryStatistics}}(\textcolor{keywordtype}{int}\ k,\ \textcolor{keywordtype}{string}\ country);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00161\ \ \ \ \ vector<string>\ \mbox{\hyperlink{class_application_aab86d83d6c07c3682aee6f4cebe7e5be}{shortestPathAirports}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ airport1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ airport2);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_application_aca6f67702b79ab2bb3950b41b2ac5492}{shortestPath}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ code1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ code2);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00177\ \ \ \ \ vector<pair<string,int>>\ \mbox{\hyperlink{class_application_a5a58fb055058e8accab2e10135ff27c5}{airportCity}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ city);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_application_aa6258f9bbba880649a34f8f94d05c0de}{shortestCityPath}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ code1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ code2);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00194\ \ \ \ \ vector<pair<string,int>>\ \mbox{\hyperlink{class_application_af4b0984927511f8cf74edd58445fd8c9}{findAirportsWithinDistance}}(\textcolor{keywordtype}{double}\ longitude,\ \textcolor{keywordtype}{double}\ latitude,\ \textcolor{keywordtype}{double}\ distance);}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_application_a0774947035a934d38180012bab43b271}{shortestKmPath}}(\textcolor{keywordtype}{double}\ longitude,\ \textcolor{keywordtype}{double}\ latitude,\ \textcolor{keywordtype}{string}\ code2,\ \textcolor{keywordtype}{double}\ distance);}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_application_ad3c69358b374acc0174afa38a7387041}{shortestAirlinePath}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&code1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&code2,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&airline);}
+\DoxyCodeLine{00214\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00215\ \ \ \ \ unordered\_set\ <Airport,\ AirportHash,\ EqualAirport>\ airportSet;}
+\DoxyCodeLine{00216\ \ \ \ \ vector<Flights>\ flightsVector\ =\ \{\};}
+\DoxyCodeLine{00217\ \ \ \ \ \mbox{\hyperlink{classgraph}{graph}}\ *graph1;}
+\DoxyCodeLine{00218\ \ \ \ \ unordered\_map\ <string,\ int>\ airportIndex;\ \textcolor{comment}{//code\ e\ index}}
+\DoxyCodeLine{00219\ \ \ \ \ vector\ <string>\ articulationPointsRede;}
+\DoxyCodeLine{00220\ \};}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PROJECTAED\_G24\_APPLICATION\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,167 @@
+\hypertarget{classgraph}{}\doxysection{graph Class Reference}
+\label{classgraph}\index{graph@{graph}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structgraph_1_1_edge}{Edge}}
+\item 
+struct \mbox{\hyperlink{structgraph_1_1_node}{Node}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgraph_a98228b18b7b6fe8f2e83cae2abba9420}{graph}} (int nodes, bool dir=false)
+\item 
+void \mbox{\hyperlink{classgraph_aebae368ee878830033db2594e6e80eb0}{add\+Edge}} (int src, int dest, string airline, double weight=1)
+\item 
+list$<$ tuple$<$ string, string $>$ $>$ \mbox{\hyperlink{classgraph_a2cb5288db41a8b6fdc06a2d99d8fe078}{get\+Path}} (int a, int b)
+\item 
+void \mbox{\hyperlink{classgraph_aa4268089f865336223e9259bea72c51e}{bfs}} (int v)
+\item 
+void \mbox{\hyperlink{classgraph_a05b54a358d04c7e9dc2ab77d36946c7d}{bfs\+\_\+diameter}} (int v, int \&diameter)
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{classgraph_aa18c745714de1ac0ed390b666684108a}{shortest\+Path\+\_\+bfs}} (int v, int t)
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{classgraph_acba76e659c170ec11273c752f3a156a0}{shortest\+Airline\+Path\+\_\+bfs}} (int v, const string \&airline)
+\item 
+void \mbox{\hyperlink{classgraph_a1aeb672d8b4d55caf916fa871b3277d3}{find\+Articulation\+Points}} (int u, vector$<$ int $>$ \&d, vector$<$ int $>$ \&small, vector$<$ int $>$ \&parent, vector$<$ bool $>$ \&is\+Articulation\+Point)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraph_ac8b3474ce95c04087c312508ec1443b6}\label{classgraph_ac8b3474ce95c04087c312508ec1443b6}} 
+int {\bfseries n}
+\item 
+\mbox{\Hypertarget{classgraph_a5c9ccbc2f7704906ddfb63cae756885c}\label{classgraph_a5c9ccbc2f7704906ddfb63cae756885c}} 
+bool {\bfseries has\+Dir}
+\item 
+\mbox{\Hypertarget{classgraph_a688754b166d59daba38c2a6e338fa5be}\label{classgraph_a688754b166d59daba38c2a6e338fa5be}} 
+vector$<$ \mbox{\hyperlink{structgraph_1_1_node}{Node}} $>$ {\bfseries nodes}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classgraph_a98228b18b7b6fe8f2e83cae2abba9420}\label{classgraph_a98228b18b7b6fe8f2e83cae2abba9420}} 
+\index{graph@{graph}!graph@{graph}}
+\index{graph@{graph}!graph@{graph}}
+\doxysubsubsection{\texorpdfstring{graph()}{graph()}}
+{\footnotesize\ttfamily graph\+::graph (\begin{DoxyParamCaption}\item[{int}]{nodes,  }\item[{bool}]{dir = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Constructor Time complexity \+: O(1) 
+\begin{DoxyParams}{Parameters}
+{\em nodes} & -\/ number of nodes \\
+\hline
+{\em dir} & -\/ direction \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgraph_aebae368ee878830033db2594e6e80eb0}\label{classgraph_aebae368ee878830033db2594e6e80eb0}} 
+\index{graph@{graph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!graph@{graph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily void graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{int}]{src,  }\item[{int}]{dest,  }\item[{string}]{airline,  }\item[{double}]{weight = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Add edge from source to destination with a certain weight Time complexity \+: O(1) 
+\begin{DoxyParams}{Parameters}
+{\em src} & -\/ source airport \\
+\hline
+{\em dest} & -\/ destination airport \\
+\hline
+{\em airline} & -\/ selected airline \\
+\hline
+{\em weight} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgraph_aa4268089f865336223e9259bea72c51e}\label{classgraph_aa4268089f865336223e9259bea72c51e}} 
+\index{graph@{graph}!bfs@{bfs}}
+\index{bfs@{bfs}!graph@{graph}}
+\doxysubsubsection{\texorpdfstring{bfs()}{bfs()}}
+{\footnotesize\ttfamily void graph\+::bfs (\begin{DoxyParamCaption}\item[{int}]{v }\end{DoxyParamCaption})}
+
+Breadth-\/first search through the graph Time complexity -\/ O($\vert$\+V$\vert$ + $\vert$\+E$\vert$) 
+\begin{DoxyParams}{Parameters}
+{\em v} & -\/ origin node index \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgraph_a05b54a358d04c7e9dc2ab77d36946c7d}\label{classgraph_a05b54a358d04c7e9dc2ab77d36946c7d}} 
+\index{graph@{graph}!bfs\_diameter@{bfs\_diameter}}
+\index{bfs\_diameter@{bfs\_diameter}!graph@{graph}}
+\doxysubsubsection{\texorpdfstring{bfs\_diameter()}{bfs\_diameter()}}
+{\footnotesize\ttfamily void graph\+::bfs\+\_\+diameter (\begin{DoxyParamCaption}\item[{int}]{v,  }\item[{int \&}]{diameter }\end{DoxyParamCaption})}
+
+Breadth-\/first, to calculate diameter, search through the graph Time complexity -\/ O($\vert$\+V$\vert$ + $\vert$\+E$\vert$) 
+\begin{DoxyParams}{Parameters}
+{\em v} & -\/ origin node index \\
+\hline
+{\em v} & -\/ maximum distance between two nodes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgraph_a1aeb672d8b4d55caf916fa871b3277d3}\label{classgraph_a1aeb672d8b4d55caf916fa871b3277d3}} 
+\index{graph@{graph}!findArticulationPoints@{findArticulationPoints}}
+\index{findArticulationPoints@{findArticulationPoints}!graph@{graph}}
+\doxysubsubsection{\texorpdfstring{findArticulationPoints()}{findArticulationPoints()}}
+{\footnotesize\ttfamily void graph\+::find\+Articulation\+Points (\begin{DoxyParamCaption}\item[{int}]{u,  }\item[{vector$<$ int $>$ \&}]{d,  }\item[{vector$<$ int $>$ \&}]{small,  }\item[{vector$<$ int $>$ \&}]{parent,  }\item[{vector$<$ bool $>$ \&}]{is\+Articulation\+Point }\end{DoxyParamCaption})}
+
+Find articulation Points Time complexity -\/ O($\vert$\+V$\vert$ + $\vert$\+E$\vert$) 
+\begin{DoxyParams}{Parameters}
+{\em u} & -\/ origin node index \\
+\hline
+{\em d} & -\/ stores the order in which nodes are visited \\
+\hline
+{\em small} & -\/ stores the smallest visit index number of all vertices that can be reached from the vertex currently being visited, including itself. \\
+\hline
+{\em parent} & -\/ stores the parent vertex of each vertex in the depth search tree. \\
+\hline
+{\em is\+Articulation\+Point} & -\/ stores a boolean value indicating whether each vertex is a pivot point or not. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgraph_a2cb5288db41a8b6fdc06a2d99d8fe078}\label{classgraph_a2cb5288db41a8b6fdc06a2d99d8fe078}} 
+\index{graph@{graph}!getPath@{getPath}}
+\index{getPath@{getPath}!graph@{graph}}
+\doxysubsubsection{\texorpdfstring{getPath()}{getPath()}}
+{\footnotesize\ttfamily list$<$ tuple$<$ string, string $>$ $>$ graph\+::get\+Path (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+This function returns the path created by the chosen traversal algorithm 
+\begin{DoxyParams}{Parameters}
+{\em a} & -\/ airport index of origin \\
+\hline
+{\em b} & -\/ airport index of destination \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ list of tuples with the airports information 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgraph_acba76e659c170ec11273c752f3a156a0}\label{classgraph_acba76e659c170ec11273c752f3a156a0}} 
+\index{graph@{graph}!shortestAirlinePath\_bfs@{shortestAirlinePath\_bfs}}
+\index{shortestAirlinePath\_bfs@{shortestAirlinePath\_bfs}!graph@{graph}}
+\doxysubsubsection{\texorpdfstring{shortestAirlinePath\_bfs()}{shortestAirlinePath\_bfs()}}
+{\footnotesize\ttfamily vector$<$ string $>$ graph\+::shortest\+Airline\+Path\+\_\+bfs (\begin{DoxyParamCaption}\item[{int}]{v,  }\item[{const string \&}]{airline }\end{DoxyParamCaption})}
+
+Breadth-\/first, to calculate the shortest path with an specific airline, search through the graph Time complexity -\/ O($\vert$\+V$\vert$ + $\vert$\+E$\vert$) 
+\begin{DoxyParams}{Parameters}
+{\em v} & -\/ origin node index \\
+\hline
+{\em airline} & -\/ airline name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgraph_aa18c745714de1ac0ed390b666684108a}\label{classgraph_aa18c745714de1ac0ed390b666684108a}} 
+\index{graph@{graph}!shortestPath\_bfs@{shortestPath\_bfs}}
+\index{shortestPath\_bfs@{shortestPath\_bfs}!graph@{graph}}
+\doxysubsubsection{\texorpdfstring{shortestPath\_bfs()}{shortestPath\_bfs()}}
+{\footnotesize\ttfamily vector$<$ string $>$ graph\+::shortest\+Path\+\_\+bfs (\begin{DoxyParamCaption}\item[{int}]{v,  }\item[{int}]{t }\end{DoxyParamCaption})}
+
+Breadth-\/first, to calculate the shortest path, search through the graph Time complexity -\/ O($\vert$\+V$\vert$ + $\vert$\+E$\vert$) 
+\begin{DoxyParams}{Parameters}
+{\em v} & -\/ origin node index \\
+\hline
+{\em v} & -\/ target node index \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/graph.\+h\item 
+src/graph.\+cpp\end{DoxyCompactItemize}

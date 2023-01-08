@@ -1,0 +1,324 @@
+\hypertarget{class_application}{}\doxysection{Application Class Reference}
+\label{class_application}\index{Application@{Application}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_application_1_1_airport_hash}{Airport\+Hash}}
+\item 
+struct \mbox{\hyperlink{struct_application_1_1_equal_airport}{Equal\+Airport}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+unordered\+\_\+set$<$ \mbox{\hyperlink{class_airport}{Airport}}, \mbox{\hyperlink{struct_application_1_1_airport_hash}{Application\+::\+Airport\+Hash}}, \mbox{\hyperlink{struct_application_1_1_equal_airport}{Application\+::\+Equal\+Airport}} $>$ \mbox{\hyperlink{class_application_a5a61cbfea80234c6c72f5bf95a32be94}{read\+Airports}} ()
+\item 
+vector$<$ \mbox{\hyperlink{struct_flights}{Flights}} $>$ \mbox{\hyperlink{class_application_a7451872cce6fb46563c68e0856685d05}{read\+Flights}} ()
+\item 
+void \mbox{\hyperlink{class_application_a72d57f4c2015a5d6431a113a8a650fe9}{create\+Graph}} ()
+\item 
+int \mbox{\hyperlink{class_application_ac27f9026b96bb7ae1c106aecdf663570}{number\+Flights}} (const string \&airport\+Code)
+\item 
+int \mbox{\hyperlink{class_application_ad29d028986095defab6d36a7259893b6}{number\+Airlines}} (const string \&airport\+Code)
+\item 
+int \mbox{\hyperlink{class_application_adbcbd00717d8acd17f4601d81b75bd57}{number\+Dest}} (const string \&airport\+Code)
+\item 
+int \mbox{\hyperlink{class_application_a2895eaf2dad028cdaae62f216d21adc9}{number\+Countries}} (const string \&airport\+Code)
+\item 
+unordered\+\_\+set$<$ int $>$ \mbox{\hyperlink{class_application_acce34378a6368f7fd68a34e67586f044}{airports\+Reachable}} (int y, const string \&airport)
+\item 
+unordered\+\_\+set$<$ string $>$ \mbox{\hyperlink{class_application_a830e38129405dd0fa3796e95950dc684}{countries\+Reachable}} (int y, const string \&airport)
+\item 
+unordered\+\_\+set$<$ string $>$ \mbox{\hyperlink{class_application_a2477b8eb7373babfab69ecd914147b6a}{cities\+Reachable}} (int y, const string \&airport)
+\item 
+void \mbox{\hyperlink{class_application_a846c8b60714bb139160d82fc9eaa0502}{Articulation\+Points\+Rede}} ()
+\item 
+void \mbox{\hyperlink{class_application_a0dd8ff21d294d7d50b5c4a6287e04a95}{rede\+Statistics}} (int k)
+\item 
+void \mbox{\hyperlink{class_application_a58987238477080967161954cca23740c}{diameter\+\_\+\+Rede}} ()
+\item 
+void \mbox{\hyperlink{class_application_ac0054ee829f343580925566cee0ae4fd}{country\+Statistics}} (int k, string country)
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{class_application_aab86d83d6c07c3682aee6f4cebe7e5be}{shortest\+Path\+Airports}} (const string \&airport1, const string \&airport2)
+\item 
+void \mbox{\hyperlink{class_application_aca6f67702b79ab2bb3950b41b2ac5492}{shortest\+Path}} (const string \&code1, const string \&code2)
+\item 
+vector$<$ pair$<$ string, int $>$ $>$ \mbox{\hyperlink{class_application_a5a58fb055058e8accab2e10135ff27c5}{airport\+City}} (const string \&city)
+\item 
+void \mbox{\hyperlink{class_application_aa6258f9bbba880649a34f8f94d05c0de}{shortest\+City\+Path}} (const string \&code1, const string \&code2)
+\item 
+vector$<$ pair$<$ string, int $>$ $>$ \mbox{\hyperlink{class_application_af4b0984927511f8cf74edd58445fd8c9}{find\+Airports\+Within\+Distance}} (double longitude, double latitude, double distance)
+\item 
+void \mbox{\hyperlink{class_application_a0774947035a934d38180012bab43b271}{shortest\+Km\+Path}} (double longitude, double latitude, string code2, double distance)
+\item 
+void \mbox{\hyperlink{class_application_ad3c69358b374acc0174afa38a7387041}{shortest\+Airline\+Path}} (const string \&code1, const string \&code2, const string \&airline)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_application_aec3a09f5f3d8506e5728273d3b4ae6b4}{set\+Graph\+Nodes}} (\mbox{\hyperlink{classgraph}{graph}} \&\mbox{\hyperlink{classgraph}{graph}}, unordered\+\_\+map$<$ string, int $>$ \&airports\+Index, unordered\+\_\+set$<$ \mbox{\hyperlink{class_airport}{Airport}}, \mbox{\hyperlink{struct_application_1_1_airport_hash}{Airport\+Hash}}, \mbox{\hyperlink{struct_application_1_1_equal_airport}{Equal\+Airport}} $>$ \&airports)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_application_a5a58fb055058e8accab2e10135ff27c5}\label{class_application_a5a58fb055058e8accab2e10135ff27c5}} 
+\index{Application@{Application}!airportCity@{airportCity}}
+\index{airportCity@{airportCity}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{airportCity()}{airportCity()}}
+{\footnotesize\ttfamily vector$<$ pair$<$ string, int $>$ $>$ Application\+::airport\+City (\begin{DoxyParamCaption}\item[{const string \&}]{city }\end{DoxyParamCaption})}
+
+Checks out all the cities that exist at an airport. 
+\begin{DoxyParams}{Parameters}
+{\em city} & Time complexity -\/ O(n) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns a vector with all airports and an index of 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_application_acce34378a6368f7fd68a34e67586f044}\label{class_application_acce34378a6368f7fd68a34e67586f044}} 
+\index{Application@{Application}!airportsReachable@{airportsReachable}}
+\index{airportsReachable@{airportsReachable}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{airportsReachable()}{airportsReachable()}}
+{\footnotesize\ttfamily unordered\+\_\+set$<$ int $>$ Application\+::airports\+Reachable (\begin{DoxyParamCaption}\item[{int}]{y,  }\item[{const string \&}]{airport }\end{DoxyParamCaption})}
+
+calculates the number of airports that are possible to visit with a maximum number of flights Time complexity -\/ O($\vert$\+V$\vert$ + $\vert$\+E$\vert$) 
+\begin{DoxyParams}{Parameters}
+{\em y} & -\/ number maximum of flights \\
+\hline
+{\em airport\+Code} & -\/ airport of departure \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_application_a846c8b60714bb139160d82fc9eaa0502}\label{class_application_a846c8b60714bb139160d82fc9eaa0502}} 
+\index{Application@{Application}!ArticulationPointsRede@{ArticulationPointsRede}}
+\index{ArticulationPointsRede@{ArticulationPointsRede}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{ArticulationPointsRede()}{ArticulationPointsRede()}}
+{\footnotesize\ttfamily void Application\+::\+Articulation\+Points\+Rede (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Prints to the consolation the code of all nodes that are pivot points and the total Time complexity -\/ O($\vert$\+E$\vert$) \mbox{\Hypertarget{class_application_a2477b8eb7373babfab69ecd914147b6a}\label{class_application_a2477b8eb7373babfab69ecd914147b6a}} 
+\index{Application@{Application}!citiesReachable@{citiesReachable}}
+\index{citiesReachable@{citiesReachable}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{citiesReachable()}{citiesReachable()}}
+{\footnotesize\ttfamily unordered\+\_\+set$<$ string $>$ Application\+::cities\+Reachable (\begin{DoxyParamCaption}\item[{int}]{y,  }\item[{const string \&}]{airport }\end{DoxyParamCaption})}
+
+calculates the number of cities that are possible to visit with a maximum number of flights Time complexity -\/ O($\vert$\+V$\vert$ + $\vert$\+E$\vert$ + n) //n is the number of airports that the set has 
+\begin{DoxyParams}{Parameters}
+{\em y} & -\/ number maximum of flights \\
+\hline
+{\em airport\+Code} & -\/ airport of departure \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_application_a830e38129405dd0fa3796e95950dc684}\label{class_application_a830e38129405dd0fa3796e95950dc684}} 
+\index{Application@{Application}!countriesReachable@{countriesReachable}}
+\index{countriesReachable@{countriesReachable}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{countriesReachable()}{countriesReachable()}}
+{\footnotesize\ttfamily unordered\+\_\+set$<$ string $>$ Application\+::countries\+Reachable (\begin{DoxyParamCaption}\item[{int}]{y,  }\item[{const string \&}]{airport }\end{DoxyParamCaption})}
+
+calculates the number of countries that are possible to visit with a maximum number of flights Time complexity -\/ O($\vert$\+V$\vert$ + $\vert$\+E$\vert$ + n) //n is the number of airports that the set has 
+\begin{DoxyParams}{Parameters}
+{\em y} & -\/ number maximum of flights \\
+\hline
+{\em airport\+Code} & -\/ airport of departure \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_application_ac0054ee829f343580925566cee0ae4fd}\label{class_application_ac0054ee829f343580925566cee0ae4fd}} 
+\index{Application@{Application}!countryStatistics@{countryStatistics}}
+\index{countryStatistics@{countryStatistics}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{countryStatistics()}{countryStatistics()}}
+{\footnotesize\ttfamily void Application\+::country\+Statistics (\begin{DoxyParamCaption}\item[{int}]{k,  }\item[{string}]{country }\end{DoxyParamCaption})}
+
+Statistics of a country, such as number of airports, number of flights, number of airlines and top-\/k of airports. Time complexity -\/ O($\vert$\+V$\vert$ $\ast$ log($\vert$\+V$\vert$) + $\vert$\+V$\vert$ + $\vert$\+E$\vert$)) \mbox{\Hypertarget{class_application_a72d57f4c2015a5d6431a113a8a650fe9}\label{class_application_a72d57f4c2015a5d6431a113a8a650fe9}} 
+\index{Application@{Application}!createGraph@{createGraph}}
+\index{createGraph@{createGraph}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{createGraph()}{createGraph()}}
+{\footnotesize\ttfamily void Application\+::create\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creating the graph with all nodes and edges Time complexity -\/ O(n) \mbox{\Hypertarget{class_application_a58987238477080967161954cca23740c}\label{class_application_a58987238477080967161954cca23740c}} 
+\index{Application@{Application}!diameter\_Rede@{diameter\_Rede}}
+\index{diameter\_Rede@{diameter\_Rede}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{diameter\_Rede()}{diameter\_Rede()}}
+{\footnotesize\ttfamily void Application\+::diameter\+\_\+\+Rede (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Prints to the diameter of the code Time complexity -\/ O($\vert$\+V$\vert$ + $\vert$\+E$\vert$) \mbox{\Hypertarget{class_application_af4b0984927511f8cf74edd58445fd8c9}\label{class_application_af4b0984927511f8cf74edd58445fd8c9}} 
+\index{Application@{Application}!findAirportsWithinDistance@{findAirportsWithinDistance}}
+\index{findAirportsWithinDistance@{findAirportsWithinDistance}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{findAirportsWithinDistance()}{findAirportsWithinDistance()}}
+{\footnotesize\ttfamily vector$<$ pair$<$ string, int $>$ $>$ Application\+::find\+Airports\+Within\+Distance (\begin{DoxyParamCaption}\item[{double}]{longitude,  }\item[{double}]{latitude,  }\item[{double}]{distance }\end{DoxyParamCaption})}
+
+Find the airports within x Km of me. 
+\begin{DoxyParams}{Parameters}
+{\em longitude} & -\/ longitude of the departure airport \\
+\hline
+{\em latitude} & -\/ latitude of the departure airport \\
+\hline
+{\em distance} & -\/ maximum distance Time complexity -\/ O(n) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_application_ad29d028986095defab6d36a7259893b6}\label{class_application_ad29d028986095defab6d36a7259893b6}} 
+\index{Application@{Application}!numberAirlines@{numberAirlines}}
+\index{numberAirlines@{numberAirlines}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{numberAirlines()}{numberAirlines()}}
+{\footnotesize\ttfamily int Application\+::number\+Airlines (\begin{DoxyParamCaption}\item[{const string \&}]{airport\+Code }\end{DoxyParamCaption})}
+
+Calculates the number of airlines departing from a specific airport Time complexity -\/ O($\vert$\+V$\vert$ + $\vert$\+E$\vert$) 
+\begin{DoxyParams}{Parameters}
+{\em airport\+Code} & -\/ airport of departure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int -\/ number of airlines 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_application_a2895eaf2dad028cdaae62f216d21adc9}\label{class_application_a2895eaf2dad028cdaae62f216d21adc9}} 
+\index{Application@{Application}!numberCountries@{numberCountries}}
+\index{numberCountries@{numberCountries}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{numberCountries()}{numberCountries()}}
+{\footnotesize\ttfamily int Application\+::number\+Countries (\begin{DoxyParamCaption}\item[{const string \&}]{airport\+Code }\end{DoxyParamCaption})}
+
+calculates the number of countries it is possible to visit with a single flight from this airport Time complexity -\/ O(n) 
+\begin{DoxyParams}{Parameters}
+{\em airport\+Code} & -\/ airport of departure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int -\/ number of countries 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_application_adbcbd00717d8acd17f4601d81b75bd57}\label{class_application_adbcbd00717d8acd17f4601d81b75bd57}} 
+\index{Application@{Application}!numberDest@{numberDest}}
+\index{numberDest@{numberDest}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{numberDest()}{numberDest()}}
+{\footnotesize\ttfamily int Application\+::number\+Dest (\begin{DoxyParamCaption}\item[{const string \&}]{airport\+Code }\end{DoxyParamCaption})}
+
+Calculates the number of destinations of flights departing from that airport Time complexity -\/ O(n) 
+\begin{DoxyParams}{Parameters}
+{\em airport\+Code} & -\/ airport of departure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int -\/ number of destinies 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_application_ac27f9026b96bb7ae1c106aecdf663570}\label{class_application_ac27f9026b96bb7ae1c106aecdf663570}} 
+\index{Application@{Application}!numberFlights@{numberFlights}}
+\index{numberFlights@{numberFlights}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{numberFlights()}{numberFlights()}}
+{\footnotesize\ttfamily int Application\+::number\+Flights (\begin{DoxyParamCaption}\item[{const string \&}]{airport\+Code }\end{DoxyParamCaption})}
+
+Calculates the number of flights departing from a specific airport Time complexity -\/ O(n) 
+\begin{DoxyParams}{Parameters}
+{\em airport\+Code} & -\/ airport of departure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int -\/ number of flights 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_application_a5a61cbfea80234c6c72f5bf95a32be94}\label{class_application_a5a61cbfea80234c6c72f5bf95a32be94}} 
+\index{Application@{Application}!readAirports@{readAirports}}
+\index{readAirports@{readAirports}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{readAirports()}{readAirports()}}
+{\footnotesize\ttfamily unordered\+\_\+set$<$ \mbox{\hyperlink{class_airport}{Airport}}, \mbox{\hyperlink{struct_application_1_1_airport_hash}{Application\+::\+Airport\+Hash}}, \mbox{\hyperlink{struct_application_1_1_equal_airport}{Application\+::\+Equal\+Airport}} $>$ Application\+::read\+Airports (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reads the file airports.\+csv and stores it in a unordered\+\_\+set, using the \mbox{\hyperlink{class_airport}{Airport}} constructor. Complexity \+: O(n) \begin{DoxyReturn}{Returns}
+an unordered\+\_\+set with all airports 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_application_a7451872cce6fb46563c68e0856685d05}\label{class_application_a7451872cce6fb46563c68e0856685d05}} 
+\index{Application@{Application}!readFlights@{readFlights}}
+\index{readFlights@{readFlights}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{readFlights()}{readFlights()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{struct_flights}{Flights}} $>$ Application\+::read\+Flights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reads the file flights.\+csv and stores it in a vector, using a \mbox{\hyperlink{struct_flights}{Flights}} struct. Complexity \+: O(n) \begin{DoxyReturn}{Returns}
+an vector with all flights 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_application_a0dd8ff21d294d7d50b5c4a6287e04a95}\label{class_application_a0dd8ff21d294d7d50b5c4a6287e04a95}} 
+\index{Application@{Application}!redeStatistics@{redeStatistics}}
+\index{redeStatistics@{redeStatistics}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{redeStatistics()}{redeStatistics()}}
+{\footnotesize\ttfamily void Application\+::rede\+Statistics (\begin{DoxyParamCaption}\item[{int}]{k }\end{DoxyParamCaption})}
+
+Statistics of a network, such as number of airports, number of flights, number of airlines, diameter and top-\/k of airports. 
+\begin{DoxyParams}{Parameters}
+{\em k} & -\/ number to calculate the top-\/k Time complexity -\/ O($\vert$\+E$\vert$) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_application_aec3a09f5f3d8506e5728273d3b4ae6b4}\label{class_application_aec3a09f5f3d8506e5728273d3b4ae6b4}} 
+\index{Application@{Application}!setGraphNodes@{setGraphNodes}}
+\index{setGraphNodes@{setGraphNodes}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{setGraphNodes()}{setGraphNodes()}}
+{\footnotesize\ttfamily void Application\+::set\+Graph\+Nodes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgraph}{graph}} \&}]{graph,  }\item[{unordered\+\_\+map$<$ string, int $>$ \&}]{airports\+Index,  }\item[{unordered\+\_\+set$<$ \mbox{\hyperlink{class_airport}{Airport}}, \mbox{\hyperlink{struct_application_1_1_airport_hash}{Airport\+Hash}}, \mbox{\hyperlink{struct_application_1_1_equal_airport}{Equal\+Airport}} $>$ \&}]{airports }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Set the nodes information Time complexity -\/ O($\vert$\+V$\vert$$\ast$log($\vert$\+V$\vert$)) 
+\begin{DoxyParams}{Parameters}
+{\em graph1} & -\/ graph with all nodes \\
+\hline
+{\em Airport\+Index} & -\/ a map containing a index for each airport \\
+\hline
+{\em airports} & -\/ vector with all the airports \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_application_ad3c69358b374acc0174afa38a7387041}\label{class_application_ad3c69358b374acc0174afa38a7387041}} 
+\index{Application@{Application}!shortestAirlinePath@{shortestAirlinePath}}
+\index{shortestAirlinePath@{shortestAirlinePath}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{shortestAirlinePath()}{shortestAirlinePath()}}
+{\footnotesize\ttfamily void Application\+::shortest\+Airline\+Path (\begin{DoxyParamCaption}\item[{const string \&}]{code1,  }\item[{const string \&}]{code2,  }\item[{const string \&}]{airline }\end{DoxyParamCaption})}
+
+Calculates the existing minimum flight with a specified airline. 
+\begin{DoxyParams}{Parameters}
+{\em code1} & -\/ code of the departure airport \\
+\hline
+{\em code2} & -\/ code of the departure airport \\
+\hline
+{\em airline} & -\/ airline name Time complexity -\/ O(n) + O($\vert$\+V$\vert$ + $\vert$\+E$\vert$) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_application_aa6258f9bbba880649a34f8f94d05c0de}\label{class_application_aa6258f9bbba880649a34f8f94d05c0de}} 
+\index{Application@{Application}!shortestCityPath@{shortestCityPath}}
+\index{shortestCityPath@{shortestCityPath}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{shortestCityPath()}{shortestCityPath()}}
+{\footnotesize\ttfamily void Application\+::shortest\+City\+Path (\begin{DoxyParamCaption}\item[{const string \&}]{code1,  }\item[{const string \&}]{code2 }\end{DoxyParamCaption})}
+
+Calculates the shortest path (fewest flights) between a city and an airport. 
+\begin{DoxyParams}{Parameters}
+{\em code1} & -\/ city of the departure airport \\
+\hline
+{\em code2} & -\/ code of the departure airport Time complexity -\/ O(n) + O($\vert$\+V$\vert$ + $\vert$\+E$\vert$) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_application_a0774947035a934d38180012bab43b271}\label{class_application_a0774947035a934d38180012bab43b271}} 
+\index{Application@{Application}!shortestKmPath@{shortestKmPath}}
+\index{shortestKmPath@{shortestKmPath}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{shortestKmPath()}{shortestKmPath()}}
+{\footnotesize\ttfamily void Application\+::shortest\+Km\+Path (\begin{DoxyParamCaption}\item[{double}]{longitude,  }\item[{double}]{latitude,  }\item[{string}]{code2,  }\item[{double}]{distance }\end{DoxyParamCaption})}
+
+Calculates the shortest path (fewest flights) between a city and an airport. 
+\begin{DoxyParams}{Parameters}
+{\em longitude} & -\/ longitude of the departure airport \\
+\hline
+{\em latitude} & -\/ latitude of the departure airport \\
+\hline
+{\em code2} & -\/ code of the departure airport \\
+\hline
+{\em distance} & -\/ maximum distance Time complexity -\/ O(n) + O($\vert$\+V$\vert$ + $\vert$\+E$\vert$) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_application_aca6f67702b79ab2bb3950b41b2ac5492}\label{class_application_aca6f67702b79ab2bb3950b41b2ac5492}} 
+\index{Application@{Application}!shortestPath@{shortestPath}}
+\index{shortestPath@{shortestPath}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{shortestPath()}{shortestPath()}}
+{\footnotesize\ttfamily void Application\+::shortest\+Path (\begin{DoxyParamCaption}\item[{const string \&}]{code1,  }\item[{const string \&}]{code2 }\end{DoxyParamCaption})}
+
+Calculates the shortest path (fewest flights) between two airports. 
+\begin{DoxyParams}{Parameters}
+{\em code1} & -\/ code of the departure airport \\
+\hline
+{\em code2} & -\/ code of the departure airport Time complexity -\/ O(n) + O($\vert$\+V$\vert$ + $\vert$\+E$\vert$) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_application_aab86d83d6c07c3682aee6f4cebe7e5be}\label{class_application_aab86d83d6c07c3682aee6f4cebe7e5be}} 
+\index{Application@{Application}!shortestPathAirports@{shortestPathAirports}}
+\index{shortestPathAirports@{shortestPathAirports}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{shortestPathAirports()}{shortestPathAirports()}}
+{\footnotesize\ttfamily vector$<$ string $>$ Application\+::shortest\+Path\+Airports (\begin{DoxyParamCaption}\item[{const string \&}]{airport1,  }\item[{const string \&}]{airport2 }\end{DoxyParamCaption})}
+
+Statistics of a country, such as number of airports, number of flights, number of airlines and top-\/k of airports. Time complexity -\/ O($\vert$\+V$\vert$ $\ast$ log($\vert$\+V$\vert$) + $\vert$\+V$\vert$ + $\vert$\+E$\vert$)) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Application.\+h\item 
+src/Application.\+cpp\end{DoxyCompactItemize}

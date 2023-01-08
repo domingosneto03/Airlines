@@ -1,0 +1,204 @@
+\hypertarget{class_menu}{}\doxysection{Menu Class Reference}
+\label{class_menu}\index{Menu@{Menu}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_menu_aef9edee86d2ea460606361c92e061583}{main\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Displays the main menu and handles user input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_ae2bb2d177c19313b829079afe76adef1}{Short\+Path\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Displays the shortest path menu and prompts the user to choose an option. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a4a6646f51bb4ac2828f47c89babf8bf0}{airport\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Displays the airport information menu and prompts the user to choose an option. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a0598168d6d13f780272d4980e5034e7b}{repeat}} (int i)
+\begin{DoxyCompactList}\small\item\em Asks the user if he wants to see more information, and if so, calls the corresponding function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_aff2b0387e22eab7e5cd525b33e2f6b5d}{number\+Flights\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Requests the user to enter an airport code and displays the number of flights leaving from the airport. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a51e0feefaddeaa84acd2b529edd2fcd7}{number\+Airlines\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Requests the user to enter an airport code and displays the number of airlines leaving from the airport. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a4af5c9b6da6b1a8d151692ddd7188f6e}{number\+Dest\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Requests the user to enter an airport code and displays the number of destinations leaving from the airport. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_af810b6c5a547092c345ba7bc6fc5cb01}{number\+Countries\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Requests the user to enter an airport code and displays the number of countries the airport flies to. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a2d066fec38b41dc398d429f72736f4e1}{reachable\+Flights\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Displays a menu with options to search for airports, countries and cities reachable within a maximum number of flights. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a73371cb9dfb60b6106b201d9d00a2a6d}{Reachable\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Requests the user to enter an airport code and a maximum number of flights, and displays the number of airports reachable from the chosen airport at a maximum number of flights equal to the number chosen by the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a60eef5b0622f193793edeacbfa7396b3}{reachable\+Countries\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Prompts the user to enter an airport code and a maximum number of flights, and displays the number of countries reachable from the chosen airport in a maximum number of flights equal to the number chosen by the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a4bbd181d42c4aa610b56bcbcef166a2b}{reachable\+Cities\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Prompts the user to enter an airport code and a maximum number of flights, and displays the number of cities reachable from the chosen airport in a maximum number of flights equal to the number chosen by the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a507094bbf82ed6960e8e3543a4cf5466}{statistics\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Displays a menu with options for displaying statistics about the entire network or about a specific country, and prompts the user to select an option. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a1ce8e1cb54c12f607b04a62b4a308775}{Country\+Statistics\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Prompts the user to enter a country name and a value for k, and calls the country\+Statistics function of the App class, passing the entered values as arguments. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_menu_a6f4334b4188f7d5ec854876964cddeea}\label{class_menu_a6f4334b4188f7d5ec854876964cddeea}} 
+void {\bfseries Airline\+Path\+Menu} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_menu_a882f6167833956ae011271b91926080c}\label{class_menu_a882f6167833956ae011271b91926080c}} 
+static void {\bfseries Airport\+Code\+Path\+Menu} ()
+\begin{DoxyCompactList}\small\item\em Requests the user to enter the departure and arrival airport codes and calls the shortest path function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_menu_a84e212906062cd119f57decb2de5497f}\label{class_menu_a84e212906062cd119f57decb2de5497f}} 
+static void {\bfseries Airport\+City\+Path\+Menu} ()
+\begin{DoxyCompactList}\small\item\em Requests the user to enter the cities of the departure and arrival airports and calls the shortest path function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_menu_a3246715d7760fd0222a032af4a4541cb}\label{class_menu_a3246715d7760fd0222a032af4a4541cb}} 
+static void {\bfseries Airport\+Km\+Path\+Menu} ()
+\begin{DoxyCompactList}\small\item\em Requests the user to enter the longitude and latitude of the departure and the max distance in km and arrival airports and calls the shortest path function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_menu_a4a6646f51bb4ac2828f47c89babf8bf0}\label{class_menu_a4a6646f51bb4ac2828f47c89babf8bf0}} 
+\index{Menu@{Menu}!airportMenu@{airportMenu}}
+\index{airportMenu@{airportMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{airportMenu()}{airportMenu()}}
+{\footnotesize\ttfamily void Menu\+::airport\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the airport information menu and prompts the user to choose an option. 
+
+Options include\+: see the number of flights leaving the airport view the number of airlines leaving the airport, view the number of destinations view the number of countries arriving at the airport and return to the main menu, with option 5. The chosen option is read from the standard input (stdin) and checked to make sure it is valid (1-\/5). Then a function is called up according to the chosen option. The menu is displayed again after the function call. \mbox{\Hypertarget{class_menu_a1ce8e1cb54c12f607b04a62b4a308775}\label{class_menu_a1ce8e1cb54c12f607b04a62b4a308775}} 
+\index{Menu@{Menu}!CountryStatisticsMenu@{CountryStatisticsMenu}}
+\index{CountryStatisticsMenu@{CountryStatisticsMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{CountryStatisticsMenu()}{CountryStatisticsMenu()}}
+{\footnotesize\ttfamily void Menu\+::\+Country\+Statistics\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prompts the user to enter a country name and a value for k, and calls the country\+Statistics function of the App class, passing the entered values as arguments. 
+
+Prompts the user to enter a country name and a value for k, and calls the country\+Statistics function of the App class, passing the entered values as arguments. \mbox{\Hypertarget{class_menu_aef9edee86d2ea460606361c92e061583}\label{class_menu_aef9edee86d2ea460606361c92e061583}} 
+\index{Menu@{Menu}!mainMenu@{mainMenu}}
+\index{mainMenu@{mainMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{mainMenu()}{mainMenu()}}
+{\footnotesize\ttfamily void Menu\+::main\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the main menu and handles user input. 
+
+The main menu consists of a list of options the user can choose from. The function prompts the user to enter their choice as an integer between 1 and 6. If the user enters an invalid option, the function will continue to prompt the user until a valid option is entered. Once a valid option is chosen, the function will execute the corresponding action using a switch statement. The function is set up to run in a loop, so once the chosen action has been executed, the function will display the main menu again and prompt the user for another choice. \mbox{\Hypertarget{class_menu_a51e0feefaddeaa84acd2b529edd2fcd7}\label{class_menu_a51e0feefaddeaa84acd2b529edd2fcd7}} 
+\index{Menu@{Menu}!numberAirlinesMenu@{numberAirlinesMenu}}
+\index{numberAirlinesMenu@{numberAirlinesMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{numberAirlinesMenu()}{numberAirlinesMenu()}}
+{\footnotesize\ttfamily void Menu\+::number\+Airlines\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Requests the user to enter an airport code and displays the number of airlines leaving from the airport. 
+
+Prompts the user to enter an airport code Then calls the function number\+Airlines from the App class passing the code as argument. If the return is -\/1, the option is not valid and the function is called again. If the answer is valid, then calls the repeat function, passing 2 as argument. \mbox{\Hypertarget{class_menu_af810b6c5a547092c345ba7bc6fc5cb01}\label{class_menu_af810b6c5a547092c345ba7bc6fc5cb01}} 
+\index{Menu@{Menu}!numberCountriesMenu@{numberCountriesMenu}}
+\index{numberCountriesMenu@{numberCountriesMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{numberCountriesMenu()}{numberCountriesMenu()}}
+{\footnotesize\ttfamily void Menu\+::number\+Countries\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Requests the user to enter an airport code and displays the number of countries the airport flies to. 
+
+Prompts the user to enter an airport code Then calls the function number\+Countries from the App class passing the code as argument. If the return is -\/1,the option is not valid and the function is called again. If the answer is valid, then calls the repeat function, passing 4 as argument. \mbox{\Hypertarget{class_menu_a4af5c9b6da6b1a8d151692ddd7188f6e}\label{class_menu_a4af5c9b6da6b1a8d151692ddd7188f6e}} 
+\index{Menu@{Menu}!numberDestMenu@{numberDestMenu}}
+\index{numberDestMenu@{numberDestMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{numberDestMenu()}{numberDestMenu()}}
+{\footnotesize\ttfamily void Menu\+::number\+Dest\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Requests the user to enter an airport code and displays the number of destinations leaving from the airport. 
+
+Prompts the user to enter an airport code Then calls the function number\+Dest from the App class passing the code as argument. If it returns -\/1, the option is not valid and the function is called again. If the answer is valid, tt then calls the repeat function, passing 3 as an argument. \mbox{\Hypertarget{class_menu_aff2b0387e22eab7e5cd525b33e2f6b5d}\label{class_menu_aff2b0387e22eab7e5cd525b33e2f6b5d}} 
+\index{Menu@{Menu}!numberFlightsMenu@{numberFlightsMenu}}
+\index{numberFlightsMenu@{numberFlightsMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{numberFlightsMenu()}{numberFlightsMenu()}}
+{\footnotesize\ttfamily void Menu\+::number\+Flights\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Requests the user to enter an airport code and displays the number of flights leaving from the airport. 
+
+Prompts the user to enter an airport code Then calls the App class function number\+Flights passing the code as an argument. If it returns -\/1, the option is not valid and the function is called again. If the answer is valid, then calls the repeat function passing 1 as argument. \mbox{\Hypertarget{class_menu_a4bbd181d42c4aa610b56bcbcef166a2b}\label{class_menu_a4bbd181d42c4aa610b56bcbcef166a2b}} 
+\index{Menu@{Menu}!reachableCitiesMenu@{reachableCitiesMenu}}
+\index{reachableCitiesMenu@{reachableCitiesMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{reachableCitiesMenu()}{reachableCitiesMenu()}}
+{\footnotesize\ttfamily void Menu\+::reachable\+Cities\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prompts the user to enter an airport code and a maximum number of flights, and displays the number of cities reachable from the chosen airport in a maximum number of flights equal to the number chosen by the user. 
+
+Prompts the user to enter an airport code and a maximum number of flights. Then, it calls the cities\+Reachable function of the App class, passing the maximum number of flights and the code as arguments. If it returns -\/1, the option is not valid and the function is called again. If the answer is valid, then it calls the repeat function, passing 7 as an argument. \mbox{\Hypertarget{class_menu_a60eef5b0622f193793edeacbfa7396b3}\label{class_menu_a60eef5b0622f193793edeacbfa7396b3}} 
+\index{Menu@{Menu}!reachableCountriesMenu@{reachableCountriesMenu}}
+\index{reachableCountriesMenu@{reachableCountriesMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{reachableCountriesMenu()}{reachableCountriesMenu()}}
+{\footnotesize\ttfamily void Menu\+::reachable\+Countries\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prompts the user to enter an airport code and a maximum number of flights, and displays the number of countries reachable from the chosen airport in a maximum number of flights equal to the number chosen by the user. 
+
+Prompts the user to enter an airport code and a maximum number of flights. Then, it calls the countries\+Reachable function of the App class, passing the maximum number of flights and the code as arguments. If it returns -\/1, the option is not valid and the function is called again. If the answer is valid, then it calls the repeat function, passing 6 as an argument. \mbox{\Hypertarget{class_menu_a2d066fec38b41dc398d429f72736f4e1}\label{class_menu_a2d066fec38b41dc398d429f72736f4e1}} 
+\index{Menu@{Menu}!reachableFlightsMenu@{reachableFlightsMenu}}
+\index{reachableFlightsMenu@{reachableFlightsMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{reachableFlightsMenu()}{reachableFlightsMenu()}}
+{\footnotesize\ttfamily void Menu\+::reachable\+Flights\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays a menu with options to search for airports, countries and cities reachable within a maximum number of flights. 
+
+Displays a menu of \char`\"{}\+Airports\char`\"{}, \char`\"{}\+Countries\char`\"{}, \char`\"{}\+Cities\char`\"{} and \char`\"{}\+Back to main menu\char`\"{}. Asks the user to choose an option. If the chosen option is valid, it calls the corresponding function\+: reachable\+Flights\+Menu, reachable\+Countries\+Menu, or reachable\+Cities\+Menu. If the chosen option is \char`\"{}\+Back to main menu\char`\"{}, it returns to the main menu. \mbox{\Hypertarget{class_menu_a73371cb9dfb60b6106b201d9d00a2a6d}\label{class_menu_a73371cb9dfb60b6106b201d9d00a2a6d}} 
+\index{Menu@{Menu}!ReachableMenu@{ReachableMenu}}
+\index{ReachableMenu@{ReachableMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{ReachableMenu()}{ReachableMenu()}}
+{\footnotesize\ttfamily void Menu\+::\+Reachable\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Requests the user to enter an airport code and a maximum number of flights, and displays the number of airports reachable from the chosen airport at a maximum number of flights equal to the number chosen by the user. 
+
+Asks the user to enter an airport code and a maximum number of flights Then calls the function airports\+Reachable from the App class passing the maximum number of flights and the code as arguments. If it returns -\/1, the option is not valid and the function is called again. If the answer is valid, then calls the repeat function passing 5 as argument. \mbox{\Hypertarget{class_menu_a0598168d6d13f780272d4980e5034e7b}\label{class_menu_a0598168d6d13f780272d4980e5034e7b}} 
+\index{Menu@{Menu}!repeat@{repeat}}
+\index{repeat@{repeat}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}}
+{\footnotesize\ttfamily void Menu\+::repeat (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Asks the user if he wants to see more information, and if so, calls the corresponding function. 
+
+Displays \char`\"{}\+Do you want to see any more? (y/n)\char`\"{} message Reads the user\textquotesingle{}s answer from the standard input (stdin). If the answer is \char`\"{}n\char`\"{} or \char`\"{}\+N\char`\"{}, returns to the previous menu. If the answer is \char`\"{}\+Y\char`\"{} or \char`\"{}y\char`\"{}, calls the corresponding function according to the value of {\ttfamily i}. If the answer is not valid, the function is called again.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Integer value that determines which function should be called. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_menu_ae2bb2d177c19313b829079afe76adef1}\label{class_menu_ae2bb2d177c19313b829079afe76adef1}} 
+\index{Menu@{Menu}!ShortPathMenu@{ShortPathMenu}}
+\index{ShortPathMenu@{ShortPathMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{ShortPathMenu()}{ShortPathMenu()}}
+{\footnotesize\ttfamily void Menu\+::\+Short\+Path\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the shortest path menu and prompts the user to choose an option. 
+
+Options include\+: enter an airport code, enter a city, enter coordinates or return to the main menu when option 4. Then a function is called according to the chosen option and the menu is displayed again after the function call. \mbox{\Hypertarget{class_menu_a507094bbf82ed6960e8e3543a4cf5466}\label{class_menu_a507094bbf82ed6960e8e3543a4cf5466}} 
+\index{Menu@{Menu}!statisticsMenu@{statisticsMenu}}
+\index{statisticsMenu@{statisticsMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{statisticsMenu()}{statisticsMenu()}}
+{\footnotesize\ttfamily void Menu\+::statistics\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays a menu with options for displaying statistics about the entire network or about a specific country, and prompts the user to select an option. 
+
+Displays a menu with options for displaying statistics about the entire network or about a specific country, and prompts the user to select an option. If the user selects option 1, it prompts the user to enter a value for k and calls the rede\+Statistics function of the App class, passing k as an argument. If the user selects option 2, it calls the Country\+Statistics\+Menu function. If the user selects option 3, it returns to the main menu. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Menu.\+h\item 
+src/Menu.\+cpp\end{DoxyCompactItemize}

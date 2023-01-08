@@ -1,0 +1,62 @@
+\hypertarget{graph_8h_source}{}\doxysection{graph.\+h}
+\label{graph_8h_source}\index{src/graph.h@{src/graph.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PROJECTAED\_G24\_GRAPH\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PROJECTAED\_G24\_GRAPH\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgraph}{graph}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgraph_1_1_edge}{Edge}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dest;}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ weight;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airline;}
+\DoxyCodeLine{00017\ \ \ \ \ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgraph_1_1_node}{Node}}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ list<Edge>\ adj;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dist;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pred;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ visited;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ code;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ name;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ city;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ country;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ latitude;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ longitude;}
+\DoxyCodeLine{00030\ \ \ \ \ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ n;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasDir;}
+\DoxyCodeLine{00034\ \ \ \ \ vector<Node>\ nodes;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classgraph}{graph}}(\textcolor{keywordtype}{int}\ nodes,\ \textcolor{keywordtype}{bool}\ dir\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgraph_aebae368ee878830033db2594e6e80eb0}{addEdge}}(\textcolor{keywordtype}{int}\ src,\ \textcolor{keywordtype}{int}\ dest,\ \textcolor{keywordtype}{string}\ airline,\ \textcolor{keywordtype}{double}\ weight\ =\ 1);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00060\ \ \ \ \ list<tuple<string,string>>\ \mbox{\hyperlink{classgraph_a2cb5288db41a8b6fdc06a2d99d8fe078}{getPath}}(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{int}\ b);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgraph_aa4268089f865336223e9259bea72c51e}{bfs}}(\textcolor{keywordtype}{int}\ v);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgraph_a05b54a358d04c7e9dc2ab77d36946c7d}{bfs\_diameter}}(\textcolor{keywordtype}{int}\ v,\ \textcolor{keywordtype}{int}\ \&diameter);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00083\ \ \ \ \ vector<string>\ \mbox{\hyperlink{classgraph_aa18c745714de1ac0ed390b666684108a}{shortestPath\_bfs}}(\textcolor{keywordtype}{int}\ v,\ \textcolor{keywordtype}{int}\ t);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00091\ \ \ \ \ vector<string>\ \mbox{\hyperlink{classgraph_acba76e659c170ec11273c752f3a156a0}{shortestAirlinePath\_bfs}}(\textcolor{keywordtype}{int}\ v,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&airline);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgraph_a1aeb672d8b4d55caf916fa871b3277d3}{findArticulationPoints}}(\textcolor{keywordtype}{int}\ u,\ vector<int>\ \&d,\ vector<int>\ \&small,\ vector<int>\ \&parent,\ vector<bool>\ \&isArticulationPoint);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PROJECTAED\_G24\_GRAPH\_H}}
+
+\end{DoxyCode}
