@@ -259,11 +259,12 @@ unordered_set <string> Application::citiesReachable(int y, const string& airport
     return cities;
 }
 
-vector<vector<string>> Application::shortestPathAirports(const string& airport1, const string& airport2) {
-    vector<vector<string>> flights;
+vector<string> Application::shortestPathAirports(const string& airport1, const string& airport2) {
+    vector<string> flights;
     int s = airportIndex[airport1];
     int t = airportIndex[airport2];
     vector<string> airport_route = graph1->shortestPath_bfs(s,t);
+    /*
     for(int i=1; i<airport_route.size(); i++) {
         string target = airport_route[i];
         string source = airport_route[i-1];
@@ -271,10 +272,9 @@ vector<vector<string>> Application::shortestPathAirports(const string& airport1,
             if(x.source == source && x.target == target)
                 string airline = x.airline;
         }
-        flights[i-1].push_back(source);
-        flights[i-1].push_back(target);
-        //flights[i-1].push_back(airline);
     }
+     */
+    
     return flights;
 }
 

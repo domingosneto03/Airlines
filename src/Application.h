@@ -168,7 +168,7 @@ public:
     */
     void countryStatistics(int k, string country);
 
-    vector<vector<string>> shortestPathAirports(const string& airport1, const string& airport2);
+    vector<string> shortestPathAirports(const string& airport1, const string& airport2);
 
 private:
     unordered_set <Airport, AirportHash, EqualAirport> airportSet;
