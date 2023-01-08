@@ -5,6 +5,7 @@
 #include <list>
 #include <iostream>
 #include <queue>
+#include <unordered_set>
 
 using namespace std;
 
@@ -83,13 +84,12 @@ public:
     vector<string> shortestPath_bfs(int v, int t);
 
     /**
-    * Breadth-first, to calculate the shortest path with an specific airline, search through the graph
+    * Breadth-first, to calculate the shortest path with specific airlines, search through the graph
     * Time complexity - O(|V| + |E|)
     * @param v - origin node index
-    * @param airline - airline name
+    * @param validAirlines - airlines name
     */
-    vector<string> shortestAirlinePath_bfs(int v, const string &airline);
-
+    void shortestAirlineListPath_bfs(int v, const unordered_set<string> &validAirlines);
 
     /**
     * Find articulation Points
@@ -101,8 +101,6 @@ public:
     * @param isArticulationPoint - stores a boolean value indicating whether each vertex is a pivot point or not.
     */
     void findArticulationPoints(int u, vector<int> &d, vector<int> &small, vector<int> &parent, vector<bool> &isArticulationPoint);
-
-
 };
 
 #endif //PROJECTAED_G24_GRAPH_H

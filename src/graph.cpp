@@ -1,5 +1,6 @@
 #include "graph.h"
 #include <map>
+#include "unordered_set"
 #include <algorithm>
 
 graph::graph(int num, bool dir) : n(num), hasDir(dir), nodes(num + 1) {
@@ -92,7 +93,7 @@ vector<string> graph::shortestPath_bfs(int v, int t){
     return airport_route;
 }
 
-vector<string> graph::shortestAirlinePath_bfs(int v, const string& airline){
+void graph::shortestAirlineListPath_bfs(int v, const unordered_set<string>& validAirlines){
     for (int i = 0; i < n; i++) {
         nodes[i].dist = INT_MAX;
         nodes[i].pred = -1;
@@ -105,10 +106,11 @@ vector<string> graph::shortestAirlinePath_bfs(int v, const string& airline){
     while (!q.empty()) {
         int u = q.front();
         q.pop();
+
         nodes[u].visited = true;
         for (Edge e : nodes[u].adj) {
             int v = e.dest;
-            if (e.airline == airline && !nodes[v].visited) {
+            if (validAirlines.find(e.airline) != validAirlines.end() && !nodes[v].visited) {
                 nodes[v].dist = nodes[u].dist + 1;
                 nodes[v].pred = u;
                 q.push(v);
@@ -116,7 +118,6 @@ vector<string> graph::shortestAirlinePath_bfs(int v, const string& airline){
         }
     }
 }
-
 
 list<tuple<string,string>> graph::getPath(int a, int b) {
     list<tuple<string,string>> path;

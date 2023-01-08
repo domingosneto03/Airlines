@@ -133,16 +133,31 @@ void Menu::AirportKmPathMenu() {
 }
 
 void Menu::AirlinePathMenu() {
+    unordered_set<string> airlines;
     string code1;
     string code2;
-    string airport;
+    string airline;
+    string answer;
     cout << "Introduce the departure airport's code:" ;
     cin >> code1;
     cout << "Introduce the arrival airport's code:" ;
     cin >> code2;
-    cout << "Introduce an airport name:";
-    cin >> airport;
-    app.shortestAirlinePath(code1, code2, airport);
+    cout << "Introduce an airline name:";
+    cin >> airline;
+    airlines.insert(airline);
+
+    cout << "Do you want to enter any more airline? (y or n)";
+    cin >> answer;
+
+    while(answer=="y") {
+        cout << "Introduce another airline:";
+        cin >> airline;
+        airlines.insert(airline);
+        cout << "Do you want to enter any more airline? (y or n)";
+        cin >> answer;
+    }
+
+    if(answer=="n") app.shortestAirlineListPath(code1, code2, airlines);
 }
 
 

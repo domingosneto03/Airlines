@@ -135,7 +135,7 @@ int Application::numberAirlines(const string& airportCode) {
         return -1;
     }
 
-    for(auto i : graph1->nodes[itr->second].adj) {
+    for(const auto& i : graph1->nodes[itr->second].adj) {
         airlines.insert(i.airline);
     }
     return airlines.size();
@@ -436,7 +436,7 @@ void Application::shortestKmPath(double longitude, double latitude, string code2
 void Application::shortestAirlinePath(const string& code1, const string& code2, const string& airline) {
     int s = airportIndex[code1];
     int t = airportIndex[code2];
-    vector<string> airport_route = graph1->shortestAirlinePath_bfs(s,airline);
+    graph1->shortestAirlinePath_bfs(s,airline);
 
     if (graph1->nodes[t].pred == -1) {
         cout << "It is not possible to realize this route with the airline " << airline << "." << endl;
@@ -444,6 +444,31 @@ void Application::shortestAirlinePath(const string& code1, const string& code2, 
     }
 
     cout << "Shortest path from " << code1 << " to " << code2 << " with airline " << airline << ": " << endl;
+    int u = t;
+    stack<int> path;
+    while (u != s) {
+        path.push(u);
+        u = graph1->nodes[u].pred;
+    }
+    path.push(s);
+    while (!path.empty()) {
+        cout << graph1->nodes[path.top()].code << " ";
+        path.pop();
+    }
+    cout << endl;
+}
+
+void Application::shortestAirlineListPath(const string& code1, const string& code2, const unordered_set<string>& airlines) {
+    int s = airportIndex[code1];
+    int t = airportIndex[code2];
+    graph1->shortestAirlineListPath_bfs(s,airlines);
+
+    if (graph1->nodes[t].pred == -1) {
+        cout << "It is not possible to realize this route with the airline that you introduce." << endl;
+        return;
+    }
+
+    cout << "Shortest path from " << code1 << " to " << code2 << " with the airlines that you introduce: " << endl;
     int u = t;
     stack<int> path;
     while (u != s) {
