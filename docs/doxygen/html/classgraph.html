@@ -101,8 +101,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a05b54a358d04c7e9dc2ab77d36946c7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa18c745714de1ac0ed390b666684108a"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraph.html#aa18c745714de1ac0ed390b666684108a">shortestPath_bfs</a> (int v, int t)</td></tr>
 <tr class="separator:aa18c745714de1ac0ed390b666684108a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acba76e659c170ec11273c752f3a156a0"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraph.html#acba76e659c170ec11273c752f3a156a0">shortestAirlinePath_bfs</a> (int v, const string &amp;airline)</td></tr>
-<tr class="separator:acba76e659c170ec11273c752f3a156a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a9980431af76928dd7a86468801b057"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraph.html#a8a9980431af76928dd7a86468801b057">shortestAirlineListPath_bfs</a> (int v, const unordered_set&lt; string &gt; &amp;validAirlines)</td></tr>
+<tr class="separator:a8a9980431af76928dd7a86468801b057"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1aeb672d8b4d55caf916fa871b3277d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraph.html#a1aeb672d8b4d55caf916fa871b3277d3">findArticulationPoints</a> (int u, vector&lt; int &gt; &amp;d, vector&lt; int &gt; &amp;small, vector&lt; int &gt; &amp;parent, vector&lt; bool &gt; &amp;isArticulationPoint)</td></tr>
 <tr class="separator:a1aeb672d8b4d55caf916fa871b3277d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -355,14 +355,14 @@ vector&lt; <a class="el" href="structgraph_1_1_node.html">Node</a> &gt;&#160;</t
 
 </div>
 </div>
-<a id="acba76e659c170ec11273c752f3a156a0" name="acba76e659c170ec11273c752f3a156a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acba76e659c170ec11273c752f3a156a0">&#9670;&#160;</a></span>shortestAirlinePath_bfs()</h2>
+<a id="a8a9980431af76928dd7a86468801b057" name="a8a9980431af76928dd7a86468801b057"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a9980431af76928dd7a86468801b057">&#9670;&#160;</a></span>shortestAirlineListPath_bfs()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt; string &gt; graph::shortestAirlinePath_bfs </td>
+          <td class="memname">void graph::shortestAirlineListPath_bfs </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>v</em>, </td>
@@ -370,8 +370,8 @@ vector&lt; <a class="el" href="structgraph_1_1_node.html">Node</a> &gt;&#160;</t
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>airline</em>&#160;</td>
+          <td class="paramtype">const unordered_set&lt; string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>validAirlines</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -380,10 +380,10 @@ vector&lt; <a class="el" href="structgraph_1_1_node.html">Node</a> &gt;&#160;</t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Breadth-first, to calculate the shortest path with an specific airline, search through the graph Time complexity - O(|V| + |E|) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Breadth-first, to calculate the shortest path with specific airlines, search through the graph Time complexity - O(|V| + |E|) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v</td><td>- origin node index </td></tr>
-    <tr><td class="paramname">airline</td><td>- airline name </td></tr>
+    <tr><td class="paramname">validAirlines</td><td>- airlines name </td></tr>
   </table>
   </dd>
 </dl>

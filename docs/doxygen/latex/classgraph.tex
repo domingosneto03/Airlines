@@ -22,7 +22,7 @@ void \mbox{\hyperlink{classgraph_a05b54a358d04c7e9dc2ab77d36946c7d}{bfs\+\_\+dia
 \item 
 vector$<$ string $>$ \mbox{\hyperlink{classgraph_aa18c745714de1ac0ed390b666684108a}{shortest\+Path\+\_\+bfs}} (int v, int t)
 \item 
-vector$<$ string $>$ \mbox{\hyperlink{classgraph_acba76e659c170ec11273c752f3a156a0}{shortest\+Airline\+Path\+\_\+bfs}} (int v, const string \&airline)
+void \mbox{\hyperlink{classgraph_a8a9980431af76928dd7a86468801b057}{shortest\+Airline\+List\+Path\+\_\+bfs}} (int v, const unordered\+\_\+set$<$ string $>$ \&valid\+Airlines)
 \item 
 void \mbox{\hyperlink{classgraph_a1aeb672d8b4d55caf916fa871b3277d3}{find\+Articulation\+Points}} (int u, vector$<$ int $>$ \&d, vector$<$ int $>$ \&small, vector$<$ int $>$ \&parent, vector$<$ bool $>$ \&is\+Articulation\+Point)
 \end{DoxyCompactItemize}
@@ -133,17 +133,17 @@ This function returns the path created by the chosen traversal algorithm
 \begin{DoxyReturn}{Returns}
 -\/ list of tuples with the airports information 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classgraph_acba76e659c170ec11273c752f3a156a0}\label{classgraph_acba76e659c170ec11273c752f3a156a0}} 
-\index{graph@{graph}!shortestAirlinePath\_bfs@{shortestAirlinePath\_bfs}}
-\index{shortestAirlinePath\_bfs@{shortestAirlinePath\_bfs}!graph@{graph}}
-\doxysubsubsection{\texorpdfstring{shortestAirlinePath\_bfs()}{shortestAirlinePath\_bfs()}}
-{\footnotesize\ttfamily vector$<$ string $>$ graph\+::shortest\+Airline\+Path\+\_\+bfs (\begin{DoxyParamCaption}\item[{int}]{v,  }\item[{const string \&}]{airline }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classgraph_a8a9980431af76928dd7a86468801b057}\label{classgraph_a8a9980431af76928dd7a86468801b057}} 
+\index{graph@{graph}!shortestAirlineListPath\_bfs@{shortestAirlineListPath\_bfs}}
+\index{shortestAirlineListPath\_bfs@{shortestAirlineListPath\_bfs}!graph@{graph}}
+\doxysubsubsection{\texorpdfstring{shortestAirlineListPath\_bfs()}{shortestAirlineListPath\_bfs()}}
+{\footnotesize\ttfamily void graph\+::shortest\+Airline\+List\+Path\+\_\+bfs (\begin{DoxyParamCaption}\item[{int}]{v,  }\item[{const unordered\+\_\+set$<$ string $>$ \&}]{valid\+Airlines }\end{DoxyParamCaption})}
 
-Breadth-\/first, to calculate the shortest path with an specific airline, search through the graph Time complexity -\/ O($\vert$\+V$\vert$ + $\vert$\+E$\vert$) 
+Breadth-\/first, to calculate the shortest path with specific airlines, search through the graph Time complexity -\/ O($\vert$\+V$\vert$ + $\vert$\+E$\vert$) 
 \begin{DoxyParams}{Parameters}
 {\em v} & -\/ origin node index \\
 \hline
-{\em airline} & -\/ airline name \\
+{\em valid\+Airlines} & -\/ airlines name \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classgraph_aa18c745714de1ac0ed390b666684108a}\label{classgraph_aa18c745714de1ac0ed390b666684108a}} 

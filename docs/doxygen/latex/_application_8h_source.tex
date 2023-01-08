@@ -91,14 +91,18 @@
 \DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_application_a0774947035a934d38180012bab43b271}{shortestKmPath}}(\textcolor{keywordtype}{double}\ longitude,\ \textcolor{keywordtype}{double}\ latitude,\ \textcolor{keywordtype}{string}\ code2,\ \textcolor{keywordtype}{double}\ distance);}
 \DoxyCodeLine{00205\ }
 \DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_application_ad3c69358b374acc0174afa38a7387041}{shortestAirlinePath}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&code1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&code2,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&airline);}
-\DoxyCodeLine{00214\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00215\ \ \ \ \ unordered\_set\ <Airport,\ AirportHash,\ EqualAirport>\ airportSet;}
-\DoxyCodeLine{00216\ \ \ \ \ vector<Flights>\ flightsVector\ =\ \{\};}
-\DoxyCodeLine{00217\ \ \ \ \ \mbox{\hyperlink{classgraph}{graph}}\ *graph1;}
-\DoxyCodeLine{00218\ \ \ \ \ unordered\_map\ <string,\ int>\ airportIndex;\ \textcolor{comment}{//code\ e\ index}}
-\DoxyCodeLine{00219\ \ \ \ \ vector\ <string>\ articulationPointsRede;}
-\DoxyCodeLine{00220\ \};}
-\DoxyCodeLine{00221\ }
-\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PROJECTAED\_G24\_APPLICATION\_H}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordtype}{void}\ shortestAirlineListPath(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&code1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&code2,\ \textcolor{keyword}{const}\ unordered\_set<string>\&\ airlines);}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00218\ \ \ \ \ unordered\_set\ <Airport,\ AirportHash,\ EqualAirport>\ airportSet;}
+\DoxyCodeLine{00219\ \ \ \ \ vector<Flights>\ flightsVector\ =\ \{\};}
+\DoxyCodeLine{00220\ \ \ \ \ \mbox{\hyperlink{classgraph}{graph}}\ *graph1;}
+\DoxyCodeLine{00221\ \ \ \ \ unordered\_map\ <string,\ int>\ airportIndex;\ \textcolor{comment}{//code\ e\ index}}
+\DoxyCodeLine{00222\ \ \ \ \ vector\ <string>\ articulationPointsRede;}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \};}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PROJECTAED\_G24\_APPLICATION\_H}}
 
 \end{DoxyCode}

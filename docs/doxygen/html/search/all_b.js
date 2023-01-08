@@ -1,8 +1,8 @@
 var searchData=
 [
   ['setgraphnodes_0',['setGraphNodes',['../class_application.html#aec3a09f5f3d8506e5728273d3b4ae6b4',1,'Application']]],
-  ['shortestairlinepath_1',['shortestAirlinePath',['../class_application.html#ad3c69358b374acc0174afa38a7387041',1,'Application']]],
-  ['shortestairlinepath_5fbfs_2',['shortestAirlinePath_bfs',['../classgraph.html#acba76e659c170ec11273c752f3a156a0',1,'graph']]],
+  ['shortestairlinelistpath_5fbfs_1',['shortestAirlineListPath_bfs',['../classgraph.html#a8a9980431af76928dd7a86468801b057',1,'graph']]],
+  ['shortestairlinepath_2',['shortestAirlinePath',['../class_application.html#ad3c69358b374acc0174afa38a7387041',1,'Application']]],
   ['shortestcitypath_3',['shortestCityPath',['../class_application.html#aa6258f9bbba880649a34f8f94d05c0de',1,'Application']]],
   ['shortestkmpath_4',['shortestKmPath',['../class_application.html#a0774947035a934d38180012bab43b271',1,'Application']]],
   ['shortestpath_5',['shortestPath',['../class_application.html#aca6f67702b79ab2bb3950b41b2ac5492',1,'Application']]],
