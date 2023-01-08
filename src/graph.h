@@ -83,6 +83,15 @@ public:
     vector<string> shortestPath_bfs(int v, int t);
 
     /**
+    * Breadth-first, to calculate the shortest path with an specific airline, search through the graph
+    * Time complexity - O(|V| + |E|)
+    * @param v - origin node index
+    * @param airline - airline name
+    */
+    vector<string> shortestAirlinePath_bfs(int v, const string &airline);
+
+
+    /**
     * Find articulation Points
     * Time complexity - O(|V| + |E|)
     * @param u - origin node index
@@ -92,6 +101,7 @@ public:
     * @param isArticulationPoint - stores a boolean value indicating whether each vertex is a pivot point or not.
     */
     void findArticulationPoints(int u, vector<int> &d, vector<int> &small, vector<int> &parent, vector<bool> &isArticulationPoint);
+
 
 };
 

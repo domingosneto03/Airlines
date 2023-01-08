@@ -60,12 +60,13 @@ void Menu::ShortPathMenu() {
     cout << "1 - Enter an airport code" << endl;
     cout << "2 - Enter a city" << endl;
     cout << "3 - Enter coordinates" << endl;
-    cout << "4 - Back to the main menu" << endl;
+    cout << "4 - Enter an airline name" << endl;
+    cout << "5 - Back to the main menu" << endl;
     cout << "===========================================" << endl;
     cout << "Option:";
     cin >> option;
 
-    while (option < 1 || option > 4) {
+    while (option < 1 || option > 5) {
         cout << "This option is not valid, try again!" << endl;
         cout << "Option:";
         cin >> option;
@@ -84,6 +85,9 @@ void Menu::ShortPathMenu() {
             AirportKmPathMenu();
             ShortPathMenu();
         case 4:
+            AirlinePathMenu();
+            ShortPathMenu();
+        case 5:
             exit(-1);
         default:
             mainMenu();
@@ -126,6 +130,19 @@ void Menu::AirportKmPathMenu() {
     cout << "Enter the maximum distance, in km, you wish to travel to an airport:" ;
     cin >> distance;
     app.shortestKmPath(longitude, latitude, code2, distance);
+}
+
+void Menu::AirlinePathMenu() {
+    string code1;
+    string code2;
+    string airport;
+    cout << "Introduce the departure airport's code:" ;
+    cin >> code1;
+    cout << "Introduce the arrival airport's code:" ;
+    cin >> code2;
+    cout << "Introduce an airport name:";
+    cin >> airport;
+    app.shortestAirlinePath(code1, code2, airport);
 }
 
 

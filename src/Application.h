@@ -203,14 +203,20 @@ public:
     */
     void shortestKmPath(double longitude, double latitude, string code2, double distance);
 
+   /**
+    * Calculates the existing minimum flight with a specified airline.
+    * @param code1 - code of the departure airport
+    * @param code2 - code of the departure airport
+    * @param airline - airline name
+    * Time complexity - O(n) + O(|V| + |E|)
+    */
+    void shortestAirlinePath(const string &code1, const string &code2, const string &airline);
 private:
     unordered_set <Airport, AirportHash, EqualAirport> airportSet;
     vector<Flights> flightsVector = {};
     graph *graph1;
     unordered_map <string, int> airportIndex; //code e index
     vector <string> articulationPointsRede;
-
-
 };
 
 #endif //PROJECTAED_G24_APPLICATION_H

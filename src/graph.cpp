@@ -92,6 +92,32 @@ vector<string> graph::shortestPath_bfs(int v, int t){
     return airport_route;
 }
 
+vector<string> graph::shortestAirlinePath_bfs(int v, const string& airline){
+    for (int i = 0; i < n; i++) {
+        nodes[i].dist = INT_MAX;
+        nodes[i].pred = -1;
+        nodes[i].visited = false;
+    }
+    nodes[v].dist = 0;
+    queue<int> q;
+    q.push(v);
+
+    while (!q.empty()) {
+        int u = q.front();
+        q.pop();
+        nodes[u].visited = true;
+        for (Edge e : nodes[u].adj) {
+            int v = e.dest;
+            if (e.airline == airline && !nodes[v].visited) {
+                nodes[v].dist = nodes[u].dist + 1;
+                nodes[v].pred = u;
+                q.push(v);
+            }
+        }
+    }
+}
+
+
 list<tuple<string,string>> graph::getPath(int a, int b) {
     list<tuple<string,string>> path;
     if (nodes[b].dist == INT_MAX / 2) return path;

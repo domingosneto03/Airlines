@@ -158,6 +158,7 @@ public:
     */
     void CountryStatisticsMenu();
 
+    void AirlinePathMenu();
 };
 
 #endif //PROJECTAED_G24_MENU_H
