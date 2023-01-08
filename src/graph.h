@@ -60,12 +60,30 @@ public:
     list<tuple<string,string>> getPath(int a, int b);
 
     /**
-    * Breadth-first search through the graph \n
+    * Breadth-first search through the graph
     * Time complexity - O(|V| + |E|)
     * @param v - origin node index
     */
     void bfs(int v);
 
+    /**
+    * Breadth-first, to calculate diameter, search through the graph
+    * Time complexity - O(|V| + |E|)
+    * @param v - origin node index
+    * @param v - maximum distance between two nodes
+    */
+    void bfs_diameter(int v, int &diameter);
+
+    /**
+    * Find articulation Points
+    * Time complexity - O(|V| + |E|)
+    * @param u - origin node index
+    * @param d - stores the order in which nodes are visited
+    * @param small - stores the smallest visit index number of all vertices that can be reached from the vertex currently being visited, including itself.
+    * @param parent - stores the parent vertex of each vertex in the depth search tree.
+    * @param isArticulationPoint - stores a boolean value indicating whether each vertex is a pivot point or not.
+    */
+    void findArticulationPoints(int u, vector<int> &d, vector<int> &small, vector<int> &parent, vector<bool> &isArticulationPoint);
 };
 
 #endif //PROJECTAED_G24_GRAPH_H

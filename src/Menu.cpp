@@ -13,14 +13,17 @@ Menu::Menu() {
 void Menu::mainMenu() {
     int option;
     cout << "===============MAIN MENU===============" << endl;
-    cout << "1 - Airport information" << endl;
-    cout << "2 - Airports/Countries/Cities reachable on a maximum of Y flights" << endl;
-    cout << "3 - Exit" << endl;
+    cout << "1 - MELHOR CASO" << endl;
+    cout << "2 - Airport information" << endl;
+    cout << "3 - Airports/Countries/Cities reachable on a maximum of Y flights" << endl;
+    cout << "4 - Statistics" << endl;
+    cout << "5 - Articulation points" << endl;
+    cout << "6 - Exit" << endl;
     cout << "=======================================" << endl;
     cout << "Option:";
     cin >> option;
 
-    while (option < 1 || option > 3) {
+    while (option < 1 || option > 6) {
         cout << "This option is not valid, try again!" << endl;
         cout << "Option:";
         cin >> option;
@@ -31,9 +34,19 @@ void Menu::mainMenu() {
             airportMenu();
             break;
         case 2:
-            ReachableMenu();
+            airportMenu();
             break;
         case 3:
+            ReachableMenu();
+            break;
+        case 4:
+            statisticsMenu();
+            break;
+        case 5:
+            app.ArticulationPointsRede();
+            mainMenu();
+            break;
+        case 6:
             exit(-1);
     }
 }
@@ -46,7 +59,7 @@ void Menu::airportMenu() {
     cout << "3 - Number of destinations" << endl;
     cout << "4 - Number of countries arriving at this airport" << endl;
     cout << "5 - Back to the main menu" << endl;
-    cout << "======================================" << endl;
+    cout << "=======================================" << endl;
     cout << "Option:";
     cin >> option;
 
@@ -78,8 +91,7 @@ void Menu::airportMenu() {
 void Menu::repeat(int i) {
     int a=i;
     string conti;
-    cout << "Do you want to see any more? (y/n)" <<
-         endl;
+    cout << "Do you want to see any more? (y/n)" << endl;
     cin >>
         conti;
     if (conti == "n" || conti == "N") {
@@ -236,7 +248,7 @@ void Menu::reachableCountriesMenu() {
     cout << "Maximum number of flights:";
     cin >> max;
 
-    int number = app.countriesReachabe(max, code).size();
+    int number = app.countriesReachable(max, code).size();
 
     if(number==-1) {
         cout << "This option is not valid, Please enter it again." << endl;
@@ -267,4 +279,50 @@ void Menu::reachableCitiesMenu() {
     else cout << "This airport flies to " << number << " different countries, with a maximum of " << max << " flights." << endl;
 
     repeat(7);
+}
+
+void Menu::statisticsMenu() {
+    int option;
+    cout << "=============STATISTICS MENU=============" << endl;
+    cout << "1 - Rede" << endl;
+    cout << "2 - Country" << endl;
+    cout << "3 - Back to the main menu" << endl;
+    cout << "======================================" << endl;
+    cout << "Option:";
+    cin >> option;
+
+    while (option < 1 || option > 4) {
+        cout << "This option is not valid, try again!" << endl;
+        cout << "Option:";
+        cin >> option;
+    }
+
+    switch (option) {
+        case 1:
+            int k;
+            cout << "Enter the k for the top-k:" ;
+            cin >> k;
+            app.redeStatistics(k);
+            mainMenu();
+            break;
+        case 2:
+            CountryStatisticsMenu();
+            mainMenu();
+            break;
+        case 3:
+            mainMenu();
+            break;
+    }
+}
+
+void Menu::CountryStatisticsMenu() {
+    string code;
+    cout << "Introduce the country's name:";
+    cin >> code;
+
+    int k;
+    cout << "Enter the k for the top-k:" ;
+    cin >> k;
+
+    app.countryStatistics(k,code);
 }

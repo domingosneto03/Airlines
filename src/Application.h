@@ -133,7 +133,7 @@ public:
     * @param y - number maximum of flights
     * @param airportCode - airport of departure
     */
-    unordered_set<string> countriesReachabe(int y, const string &airport);
+    unordered_set<string> countriesReachable(int y, const string &airport);
 
     /**
     * calculates the number of cities that are possible to visit with a maximum number of flights
@@ -143,12 +143,40 @@ public:
     */
     unordered_set<string> citiesReachable(int y, const string &airport);
 
+    /**
+    * Prints to the consolation the code of all nodes that are pivot points and the total
+    * Time complexity - O(|E|)
+    */
+    void ArticulationPointsRede();
+
+    /**
+    * Statistics of a network, such as number of airports, number of flights, number of airlines, diameter and top-k of airports.
+    * @param k - number to calculate the top-k
+    * Time complexity - O(|E|)
+    */
+    void redeStatistics(int k);
+
+    /**
+    * Prints to the diameter of the code
+    * Time complexity - O(|V| + |E|)
+    */
+    void diameter_Rede();
+
+    /**
+    * Statistics of a country, such as number of airports, number of flights, number of airlines and top-k of airports.
+    * Time complexity - O(|V| * log(|V|) + |V| + |E|))
+    */
+    void countryStatistics(int k, string country);
+
 private:
     unordered_set <Airport, AirportHash, EqualAirport> airportSet;
     unordered_set<Airline *> airlineSet = {};
     vector<Flights> flightsVector = {};
     graph *graph1;
     unordered_map <string, int> airportIndex; //code e index
+    vector <string> articulationPointsRede;
+
+
 
 };
 

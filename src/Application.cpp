@@ -6,6 +6,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 #include <unordered_map>
 #include <unordered_set>
 
@@ -220,7 +221,7 @@ unordered_set <int> Application::airportsReachable(int y, const string& airport)
     return reachable;
 }
 
-unordered_set <string> Application::countriesReachabe(int y, const string& airport) {
+unordered_set <string> Application::countriesReachable(int y, const string& airport) {
     unordered_set <string> countries;
     unordered_set <int> airports = airportsReachable(y,airport);
     string airportCode;
@@ -256,4 +257,104 @@ unordered_set <string> Application::citiesReachable(int y, const string& airport
     }
 
     return cities;
+}
+
+
+void Application::ArticulationPointsRede() {
+    vector<int> d(graph1->n, -1);
+    vector<int> low(graph1->n, -1);
+    vector<int> parent(graph1->n, -1);
+    parent[0] = 0; //node da raiz da bfs
+    int count=0;
+    vector<bool> isArticulationPoint(graph1->n, false);
+
+    for (int i = 0; i < graph1->n; i++) {
+        if (!graph1->nodes[i].visited) {
+            graph1->findArticulationPoints(i, d, low, parent, isArticulationPoint);
+        }
+    }
+
+    for (int i = 0; i < graph1->n; i++) {
+        if (isArticulationPoint[i]) {
+            count++;
+            articulationPointsRede.push_back(graph1->nodes[i].code);
+            cout << graph1->nodes[i].code << endl;
+        }
+    }
+    cout << "Total: " << count << endl;
+}
+
+void Application::diameter_Rede() {
+    int diameter = 0;
+    for(int i = 1; i < graph1->nodes.size(); i++) {
+        graph1->bfs_diameter(i, diameter);
+    }
+    cout << "A rede apresenta um diametro de " << diameter << endl;
+}
+
+void Application::redeStatistics(int k) {
+    // nodes, edges, airlines, diametro e top k
+    int count=0;
+    unordered_set <string> differentAirlines;
+    vector<pair<string,int>> numFlights;
+
+    for(const auto& n: graph1->nodes) {
+        count += n.adj.size();
+        pair<string, int> s = make_pair(n.code,n.adj.size());
+        numFlights.push_back(s);
+        for (auto a: n.adj) {
+            differentAirlines.insert(a.airline);
+        }
+    }
+
+    int numAirlines = differentAirlines.size();
+
+    cout << "The network have " << graph1->n << " " << "and " << count << " flights in " << numAirlines << " " << "different airlines." << endl;
+    cout << "Top" << k << " for number of flights:" << endl;
+
+    sort(numFlights.begin(), numFlights.end(), [](const auto& p1, const auto& p2) {
+        return p1.second > p2.second;
+    });
+
+    for(int i=0; i<k; i++) {
+        cout << numFlights[i].first << " : " << numFlights[i].second << endl;
+    }
+
+    diameter_Rede();
+}
+
+
+void Application::countryStatistics(int k, string country) {
+    // nodes, edges, airlines, diameter e top k
+    int edges=0;
+    unordered_set <string> differentAirports;
+    unordered_set <string> differentAirlines;
+    vector<pair<string,int>> numFlights;
+
+    for(const auto& n: graph1->nodes) {
+        if (n.country == country) {
+            differentAirports.insert(n.code);
+            edges+= n.adj.size();
+            for (auto a : n.adj) {
+                differentAirlines.insert(a.airline);
+            }
+        }
+    }
+
+    int numAirlines = differentAirlines.size();
+
+    for(auto d: differentAirports) {
+        int index = airportIndex[d];
+        numFlights.emplace_back(d,graph1->nodes[index].adj.size());
+    }
+    cout << "In " << country << " we have " << differentAirports.size() << " airports and " << edges << " flights in " << numAirlines << " " << "different airlines." << endl;
+    cout << "Top" << k << " for number of flights:" << endl;
+
+    sort(numFlights.begin(), numFlights.end(), [](const auto& p1, const auto& p2) {
+        return p1.second > p2.second;
+    });
+
+    for(int i=0; i<k; i++) {
+        cout << numFlights[i].first << " : " << numFlights[i].second << endl;
+    }
 }
